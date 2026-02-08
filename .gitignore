@@ -1,0 +1,14 @@
+# --- Basura de Windows ---
+Thumbs.db
+Desktop.ini
+
+# --- Basura de Mac (por si trabajas con gente que usa Apple) ---
+.DS_Store
+
+# --- Carpetas pesadas de código (Node.js) ---
+node_modules/
+dist/
+build/
+
+# --- Archivos con claves secretas (Seguridad) ---
+.env
