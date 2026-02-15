@@ -1,1 +1,67 @@
-Hola mundo
+<!doctype html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estructura Semántica y Accesible</title>
+    <meta
+      name="description"
+      content="Ejemplo de documento HTML semántico para SEO y lectores de pantalla."
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Nombre del Sistema o Aplicación</h1>
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="#inicio">Inicio</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="#contenido">Contenido</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido" class="main-content">
+      <article class="hero">
+        <header class="hero__header">
+          <h2 class="hero__title">Título del Artículo o Sección Principal</h2>
+        </header>
+        <p class="hero__description">
+          Este bloque representa contenido independiente y autónomo que tiene
+          sentido por sí mismo.
+        </p>
+
+        <img
+          class="hero__image"
+          src="ruta-imagen.jpg"
+          alt="Diagrama de flujo mostrando la interacción entre cliente y servidor web"
+        />
+
+        <button
+          class="hero__button hero__button--primary"
+          aria-label="Cerrar notificación de artículo"
+        >
+          X
+        </button>
+      </article>
+
+      <aside
+        class="sidebar"
+        aria-label="Barra lateral con enlaces de referencia"
+      >
+        <h3 class="sidebar__title">Información Relacionada</h3>
+        <p class="sidebar__text">
+          Contenido periférico o complementario al artículo principal.
+        </p>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">&copy; 2026 Derechos Reservados.</p>
+    </footer>
+  </body>
+</html>
