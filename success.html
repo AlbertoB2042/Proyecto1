@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="es" data-lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Mensaje Enviado! | Alberto Báez Jiménez</title>
+    <meta name="description" content="Tu mensaje ha sido enviado exitosamente. Te contactaré pronto." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logoabj.svg" />
+
+    <!-- Lottie animations -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .success-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-xl);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .success-page__content {
+        max-width: 600px;
+        text-align: center;
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-2xl);
+        box-shadow: var(--shadow-card);
+        animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+      }
+
+      .success-page__icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto var(--spacing-lg);
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4);
+        animation: checkmarkPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+      }
+
+      .success-page__checkmark {
+        width: 60px;
+        height: 60px;
+        stroke: white;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation: drawCheck 0.5s ease-out 0.5s forwards;
+      }
+
+      .success-page__title {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+      }
+
+      .success-page__description {
+        font-size: var(--font-size-base);
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .success-page__redirect {
+        font-size: var(--font-size-sm);
+        color: var(--text-muted);
+        margin-bottom: var(--spacing-xl);
+        opacity: 0.7;
+      }
+
+      .success-page__countdown {
+        color: var(--violet);
+        font-weight: 600;
+      }
+
+      .success-page__actions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+      }
+
+      @media (min-width: 768px) {
+        .success-page__actions {
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+
+      /* Animaciones */
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes checkmarkPop {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes drawCheck {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Toggle buttons en esquina superior derecha */
+      .page-controls {
+        position: fixed;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        display: flex;
+        gap: var(--spacing-sm);
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Particles background -->
+    <canvas id="particles-bg" aria-hidden="true"></canvas>
+
+    <!-- Controles de página -->
+    <div class="page-controls">
+      <button
+        class="lang-toggle"
+        type="button"
+        id="lang-toggle"
+        aria-pressed="false"
+        aria-label="Cambiar idioma"
+      >
+        <span class="lang-toggle__text">ES</span>
+      </button>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        id="theme-toggle"
+        aria-pressed="false"
+        aria-label="Cambiar tema de color"
+      >
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="success-page">
+      <div class="success-page__content">
+        <!-- Ícono de éxito con checkmark animado -->
+        <div class="success-page__icon">
+          <svg class="success-page__checkmark" viewBox="0 0 52 52">
+            <path d="M14 27l8 8 16-16" />
+          </svg>
+        </div>
+
+        <!-- Título -->
+        <h1 class="success-page__title">
+          <span data-lang="es">¡Mensaje Enviado Exitosamente!</span>
+          <span data-lang="en">Message Sent Successfully!</span>
+        </h1>
+
+        <!-- Descripción -->
+        <p class="success-page__description">
+          <span data-lang="es">
+            Gracias por contactarme. He recibido tu mensaje y te responderé lo más pronto posible.
+          </span>
+          <span data-lang="en">
+            Thank you for contacting me. I have received your message and will respond as soon as possible.
+          </span>
+        </p>
+
+        <!-- Mensaje de redirección -->
+        <p class="success-page__redirect">
+          <span data-lang="es">
+            Serás redirigido al inicio en <span class="success-page__countdown" id="countdown">5</span> segundos...
+          </span>
+          <span data-lang="en">
+            You will be redirected to home in <span class="success-page__countdown" id="countdown-en">5</span> seconds...
+          </span>
+        </p>
+
+        <!-- Acciones -->
+        <div class="success-page__actions">
+          <a href="index.html" id="home-btn" class="btn btn--primary">
+            <span data-lang="es">Ir al Inicio Ahora</span>
+            <span data-lang="en">Go Home Now</span>
+          </a>
+          <a href="index.html#proyectos" id="projects-btn" class="btn btn--ghost">
+            <span data-lang="es">Ver Proyectos</span>
+            <span data-lang="en">View Projects</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // =====================================
+      // THEME & LANGUAGE TOGGLES
+      // =====================================
+      const root = document.documentElement;
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const langToggleBtn = document.getElementById('lang-toggle');
+      const langToggleText = langToggleBtn?.querySelector('.lang-toggle__text');
+
+      // Theme toggle
+      const STORAGE_KEY = 'theme';
+      const getPreferredTheme = () => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'light' || stored === 'dark') return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        themeToggleBtn?.setAttribute('aria-pressed', theme === 'dark' ? 'false' : 'true');
+      };
+
+      applyTheme(getPreferredTheme());
+
+      themeToggleBtn?.addEventListener('click', () => {
+        const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(STORAGE_KEY, nextTheme);
+        applyTheme(nextTheme);
+      });
+
+      // Language toggle
+      const LANG_STORAGE_KEY = 'lang';
+      const getPreferredLang = () => {
+        const stored = localStorage.getItem(LANG_STORAGE_KEY);
+        if (stored === 'es' || stored === 'en') return stored;
+        const browserLang = navigator.language.toLowerCase();
+        return browserLang.startsWith('es') ? 'es' : 'en';
+      };
+
+      const applyLang = (lang) => {
+        root.dataset.lang = lang;
+        if (langToggleText) {
+          langToggleText.textContent = lang === 'es' ? 'ES' : 'EN';
+        }
+        langToggleBtn?.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+        document.documentElement.lang = lang;
+      };
+
+      applyLang(getPreferredLang());
+
+      langToggleBtn?.addEventListener('click', () => {
+        const nextLang = root.dataset.lang === 'es' ? 'en' : 'es';
+        localStorage.setItem(LANG_STORAGE_KEY, nextLang);
+        applyLang(nextLang);
+      });
+
+      // =====================================
+      // AUTO REDIRECT COUNTDOWN
+      // =====================================
+      const countdownES = document.getElementById('countdown');
+      const countdownEN = document.getElementById('countdown-en');
+      let timeLeft = 5;
+
+      // Detectar si estamos en local o producción
+      const getHomeUrl = () => {
+        const protocol = window.location.protocol;
+        // Si es file:// (local), usar index.html
+        if (protocol === 'file:') {
+          return 'index.html';
+        }
+        // Si es http(s):// (producción), usar /
+        return '/';
+      };
+
+      // Actualizar hrefs de botones para producción
+      if (window.location.protocol !== 'file:') {
+        const homeBtn = document.getElementById('home-btn');
+        const projectsBtn = document.getElementById('projects-btn');
+        if (homeBtn) homeBtn.href = '/';
+        if (projectsBtn) projectsBtn.href = '/#proyectos';
+      }
+
+      const countdownInterval = setInterval(() => {
+        timeLeft--;
+        if (countdownES) countdownES.textContent = timeLeft;
+        if (countdownEN) countdownEN.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          window.location.href = getHomeUrl();
+        }
+      }, 1000);
+
+      // =====================================
+      // PARTICLES BACKGROUND (verde - éxito)
+      // =====================================
+      const canvas = document.getElementById('particles-bg');
+      if (canvas) {
+        const isMobile = window.innerWidth <= 768;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (isMobile || prefersReducedMotion) {
+          canvas.style.display = 'none';
+        } else {
+          const ctx = canvas.getContext('2d');
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+
+          const CONFIG = {
+            particleCount: 40,
+            particleSpeed: 0.6,
+            connectionDistance: 120,
+            lineWidth: 2,
+            particleColor: 'rgba(34, 197, 94, 0.8)',
+            lineColor: 'rgba(34, 197, 94, 0.2)',
+          };
+
+          class Particle {
+            constructor() {
+              this.x = Math.random() * canvas.width;
+              this.y = Math.random() * canvas.height;
+              this.vx = (Math.random() - 0.5) * CONFIG.particleSpeed;
+              this.vy = (Math.random() - 0.5) * CONFIG.particleSpeed;
+              this.radius = 1.5;
+            }
+
+            update() {
+              this.x += this.vx;
+              this.y += this.vy;
+              if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+              if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+              ctx.beginPath();
+              ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+              ctx.fillStyle = CONFIG.particleColor;
+              ctx.fill();
+            }
+          }
+
+          const particles = Array.from({ length: CONFIG.particleCount }, () => new Particle());
+
+          function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+              particle.update();
+              particle.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+              for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < CONFIG.connectionDistance) {
+                  const opacity = (1 - distance / CONFIG.connectionDistance) * 0.2;
+                  ctx.beginPath();
+                  ctx.strokeStyle = `rgba(34, 197, 94, ${opacity})`;
+                  ctx.lineWidth = CONFIG.lineWidth;
+                  ctx.moveTo(particles[i].x, particles[i].y);
+                  ctx.lineTo(particles[j].x, particles[j].y);
+                  ctx.stroke();
+                }
+              }
+            }
+
+            requestAnimationFrame(animate);
+          }
+
+          animate();
+
+          window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

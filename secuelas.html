@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secuelas: El ocaso de la verdad — Alberto Báez Jiménez</title>
+    <meta
+      name="description"
+      content="Lee los primeros capítulos de Secuelas: El ocaso de la verdad, una novela de fantasía política de Alberto Báez Jiménez."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logoabj.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* ==========================================
+         NOVEL PAGE — SPECIFIC STYLES
+         ========================================== */
+
+      /* Reading progress bar */
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--violet), var(--violet-hover));
+        z-index: 9999;
+        transition: width 0.1s linear;
+      }
+
+      /* ── NOVEL HERO ── */
+      .novel-hero {
+        padding: calc(var(--spacing-2xl) + 70px) var(--spacing-lg) var(--spacing-xl);
+        text-align: center;
+        position: relative;
+      }
+
+      .novel-hero__cover {
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-glass);
+        background: var(--card-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: var(--shadow-glow);
+        margin: 0 auto var(--spacing-lg);
+        display: block;
+        padding: var(--spacing-sm);
+      }
+
+      .novel-hero__genre {
+        display: inline-block;
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        color: var(--violet-hover);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .novel-hero__title {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 500;
+        color: var(--text-light);
+        line-height: 1.15;
+        margin: 0 0 var(--spacing-sm);
+      }
+
+      .novel-hero__subtitle {
+        font-family: "EB Garamond", Georgia, serif;
+        font-style: italic;
+        font-size: var(--font-size-lg);
+        color: var(--text-muted);
+        margin: 0 0 var(--spacing-lg);
+      }
+
+      .novel-hero__meta {
+        font-size: var(--font-size-sm);
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+      }
+
+      .novel-hero__meta-sep {
+        opacity: 0.4;
+      }
+
+      /* ── CHAPTER NAVIGATION ── */
+      .chapter-nav {
+        position: sticky;
+        top: 70px;
+        z-index: 100;
+        background: var(--header-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-glass);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-xs);
+        flex-wrap: wrap;
+      }
+
+      .chapter-nav__label {
+        font-size: var(--font-size-sm);
+        color: var(--text-muted);
+        margin-right: var(--spacing-sm);
+      }
+
+      .chapter-nav__link {
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        color: var(--text-muted);
+        text-decoration: none;
+        padding: 4px 14px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        transition: color 0.2s, border-color 0.2s, background 0.2s;
+        white-space: nowrap;
+      }
+
+      .chapter-nav__link:hover,
+      .chapter-nav__link.is-active {
+        color: var(--text-light);
+        border-color: var(--border-glass);
+        background: var(--card-bg);
+      }
+
+      /* ── NOVEL BODY ── */
+      .novel {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-2xl);
+      }
+
+      /* ── CHAPTER ── */
+      .novel__chapter {
+        margin-bottom: var(--spacing-2xl);
+        scroll-margin-top: 130px;
+      }
+
+      .novel__chapter-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+        padding-bottom: var(--spacing-lg);
+        border-bottom: 1px solid var(--border-glass);
+        position: relative;
+      }
+
+      .novel__chapter-number {
+        display: block;
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--violet-hover);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .novel__chapter-title {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        font-weight: 500;
+        color: var(--text-light);
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      /* Decorative divider under chapter title */
+      .novel__chapter-header::after {
+        content: "✦";
+        display: block;
+        text-align: center;
+        color: var(--violet);
+        font-size: 1rem;
+        margin-top: var(--spacing-lg);
+        opacity: 0.6;
+      }
+
+      /* ── PARAGRAPHS ── */
+      .novel__p {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: 1.2rem;
+        line-height: 1.95;
+        color: var(--text-light);
+        margin: 0 0 1.4em;
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      /* First paragraph after chapter title: drop cap */
+      .novel__chapter-body > .novel__p:first-child::first-letter {
+        font-size: 4.2em;
+        font-weight: 500;
+        line-height: 0.8;
+        float: left;
+        margin: 0.05em 0.08em 0 0;
+        color: var(--violet-hover);
+      }
+
+      /* Dialogue lines */
+      .novel__p--dialogue {
+        padding-left: 1.5em;
+        position: relative;
+      }
+
+      /* Section break within a chapter */
+      .novel__break {
+        text-align: center;
+        color: var(--violet);
+        margin: var(--spacing-xl) 0;
+        opacity: 0.5;
+        font-size: 1.2rem;
+        letter-spacing: 0.5em;
+        user-select: none;
+      }
+
+      /* Emphasis within narrative */
+      .novel__p em {
+        font-style: italic;
+      }
+
+      /* ── CHAPTER SEPARATOR ── */
+      .novel__chapter-sep {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin: var(--spacing-2xl) 0;
+        color: var(--border-glass);
+      }
+
+      .novel__chapter-sep::before,
+      .novel__chapter-sep::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border-glass);
+      }
+
+      .novel__chapter-sep-icon {
+        color: var(--violet);
+        font-size: 1.2rem;
+        opacity: 0.5;
+      }
+
+      /* ── BACK BUTTON ── */
+      .novel-back {
+        position: fixed;
+        bottom: var(--spacing-lg);
+        right: var(--spacing-lg);
+        z-index: 200;
+      }
+
+      /* ── END CARD ── */
+      .novel__end {
+        text-align: center;
+        padding: var(--spacing-2xl) var(--spacing-lg);
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-lg);
+        margin-top: var(--spacing-2xl);
+        box-shadow: var(--shadow-card);
+      }
+
+      .novel__end-ornament {
+        font-size: 2rem;
+        color: var(--violet);
+        display: block;
+        margin-bottom: var(--spacing-md);
+        opacity: 0.6;
+      }
+
+      .novel__end-title {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: var(--font-size-2xl);
+        color: var(--text-light);
+        font-weight: 500;
+        margin: 0 0 var(--spacing-sm);
+      }
+
+      .novel__end-text {
+        font-family: "EB Garamond", Georgia, serif;
+        font-style: italic;
+        color: var(--text-muted);
+        font-size: var(--font-size-lg);
+        margin: 0 0 var(--spacing-xl);
+      }
+
+      /* ── MUTED TEXT ── */
+      .text-muted {
+        color: var(--text-muted);
+      }
+
+      /* ── LIGHT THEME OVERRIDES ── */
+      :root[data-theme="light"] .novel__p {
+        color: var(--text-light);
+      }
+
+      :root[data-theme="light"] .novel__chapter-title {
+        color: var(--text-light);
+      }
+
+      :root[data-theme="light"] .novel__end-title {
+        color: var(--text-light);
+      }
+
+      :root[data-theme="light"] .chapter-nav {
+        background: var(--header-bg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Reading progress bar -->
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+    <!-- Canvas particles background -->
+    <canvas id="particles-bg" aria-hidden="true"></canvas>
+
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <a href="index.html" class="header__logo-link">
+        <img
+          src="assets/img/logoabj.svg"
+          alt="ABJ Logo"
+          class="header__logo header__logo--light"
+          width="40"
+          height="40"
+        />
+        <img
+          src="assets/img/logoabjo.svg"
+          alt="ABJ Logo"
+          class="header__logo header__logo--dark"
+          width="40"
+          height="40"
+        />
+        <h1 class="header__title">Alberto Báez Jiménez</h1>
+      </a>
+
+      <div class="header__actions">
+        <a href="index.html#proyectos" class="btn btn--ghost" style="font-size: var(--font-size-sm);">
+          ← Portafolio
+        </a>
+
+        <!-- Theme toggle -->
+        <button
+          class="btn--icon theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-label="Cambiar a tema claro"
+          aria-pressed="false"
+        >
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ── HERO ── -->
+    <section class="novel-hero" aria-label="Encabezado de la novela">
+      <img
+        src="assets/img/secuelas.svg"
+        alt="Portada de Secuelas: El ocaso de la verdad"
+        class="novel-hero__cover"
+        width="180"
+        height="180"
+      />
+      <span class="novel-hero__genre">Fantasía Política · 2026</span>
+      <h2 class="novel-hero__title">Secuelas</h2>
+      <p class="novel-hero__subtitle">El ocaso de la verdad</p>
+      <div class="novel-hero__meta">
+        <span>Alberto Báez Jiménez</span>
+        <span class="novel-hero__meta-sep">·</span>
+        <span>Capítulos I – III</span>
+        <span class="novel-hero__meta-sep">·</span>
+        <span>~30 min de lectura</span>
+      </div>
+    </section>
+
+    <!-- ── CHAPTER NAVIGATION ── -->
+    <nav class="chapter-nav" aria-label="Navegación de capítulos">
+      <span class="chapter-nav__label">Ir a:</span>
+      <a class="chapter-nav__link" href="#cap1">I. Fobia</a>
+      <a class="chapter-nav__link" href="#cap2">II. Los Hombres Cono</a>
+      <a class="chapter-nav__link" href="#cap3">III. Los Corpuri</a>
+    </nav>
+
+    <!-- ── NOVEL CONTENT ── -->
+    <main id="contenido">
+      <article class="novel" aria-label="Texto de la novela">
+
+        <!-- ════════════════════════════════════
+             CAPÍTULO 1: FOBIA
+             ════════════════════════════════════ -->
+        <section class="novel__chapter" id="cap1">
+          <header class="novel__chapter-header">
+            <span class="novel__chapter-number">Capítulo I</span>
+            <h3 class="novel__chapter-title">Fobia</h3>
+          </header>
+
+          <div class="novel__chapter-body">
+            <p class="novel__p">Abrió los ojos, delante de sí solo podía vislumbrar una eternidad de vacío, la oscuridad del paisaje cada vez se hacía más intimidante. El sentimiento de soledad invadía su cuerpo y lo dejó helado, una brisa leve recorría su cuerpo y lo hacía ondear.</p>
+
+            <p class="novel__p">El terror se apoderó de él cuando descubrió que no tenía manos, ni pies, ni piernas. Su cuerpo ahora solo era una tela gruesa. Su movilidad era prácticamente nula, por más que intentaba moverse no había respuesta en lo que ahora conformaba su cuerpo. Entonces fue cuando lo notó: su ser estaba adherido a una infinita pared que se encontraba detrás de él, esta pared era lisa, gris, sin fisuras ni algún imperfecto. Era una pared irreal, además, notó que no había objeto o estructura que lo mantuviera atado a la pared. Simplemente no podía despegarse de ella.</p>
+
+            <p class="novel__p">La necesidad de salir de aquella situación lo empezó a llenar de temor, por más que intentaba, no había manera de salir de allí, y aun si pudiera despegarse ¿a dónde iría? La pared se dibujaba infinita, tanto a su izquierda como a su derecha, como hacia arriba o hacia abajo. El panorama que tenía delante de él tampoco era alentador, pues la oscuridad lucía interminable, incluso peligrosa.</p>
+
+            <p class="novel__p">Entonces todo empeoró, desde todos los lados, y a la vez desde ningún lado, empezaron a resonar voces en su mente.</p>
+
+            <p class="novel__p novel__p--dialogue">—No soy nadie, no fui nadie, no seré nadie, ¿quién eres tú? —susurró una voz con pena.</p>
+
+            <p class="novel__p novel__p--dialogue">—El conocimiento es más importante que cualquier oferta banal de ascensión, ¿acaso soy el único que se da cuenta? —dijo otra voz llena de orgullo.</p>
+
+            <p class="novel__p novel__p--dialogue">—¡Silencio! Todos sabemos que elegimos lo correcto, el deber es el deber —exclamó otra voz con firmeza.</p>
+
+            <p class="novel__p">Las intervenciones de las voces eran interminables, aunque nunca se atropellaban entre sí. Era un martirio estar escuchando a tantas, el sentimiento en las demás voces era mixto, mientras algunas estaban orgullosas de su elección, otras se lamentaban y no hacían más que quejarse.</p>
+
+            <p class="novel__p">Entonces le surgió la duda: —¿A qué elección se están refiriendo? —pensó.</p>
+
+            <p class="novel__p">De tanto alboroto mental, había olvidado su condición. Una corriente de aire lo sacudió violentamente. Por un momento, solo por un momento, sintió algo cercano a la libertad.</p>
+
+            <p class="novel__p">Entonces, desde las profundidades de ese espacio desolado, emergieron figuras. Retorcidas, estiradas, deformadas. Eran como él: telas sin extremidades, formas planas adheridas al vacío. Se deslizaban, flotaban, acercándose.</p>
+
+            <p class="novel__p"><em>Figuras Pared.</em></p>
+
+            <p class="novel__p">La temperatura descendió. Ludwig sintió frío sin tener piel para sentirlo. Sus formas perfilaban rostros con ojos, nariz y boca, pero todos idénticos, como tallados del mismo molde gris y desesperanzado.</p>
+
+            <p class="novel__p">Con voces que resonaban como metal rasgándose, hablaron al unísono:</p>
+
+            <p class="novel__p novel__p--dialogue">—Eres una Figura Pared, Ludwig.</p>
+
+            <p class="novel__p">¿Cómo sabían su nombre?</p>
+
+            <p class="novel__p novel__p--dialogue">—Tu destino es servir, observar, transmitir y obedecer a los seres dorita.</p>
+
+            <p class="novel__p">Ludwig sintió la angustia que emanaba de ellas, una total desesperación perpetua e impotencia absoluta.</p>
+
+            <p class="novel__p">Pero algo dentro de él se resistió.</p>
+
+            <p class="novel__p novel__p--dialogue">—¡No! —exclamó—. No me resignaré.</p>
+
+            <p class="novel__p">Las figuras oscilaron, desconcertadas.</p>
+
+            <p class="novel__p">Una se adelantó:</p>
+
+            <p class="novel__p novel__p--dialogue">—Existe una alternativa, Ludwig. —Su voz mezclaba esperanza y miedo—. Pero el camino hacia la ascensión está lleno de peligros inimaginables.</p>
+
+            <p class="novel__p">Las otras Figuras Pared se agitaron.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Le dirás? —susurró una.</p>
+            <p class="novel__p novel__p--dialogue">—No debería saber —murmuró otra.</p>
+            <p class="novel__p novel__p--dialogue">—Ya es tarde —cortó una tercera.</p>
+
+            <p class="novel__p">Y entonces todas comenzaron a hablar a la vez.</p>
+
+            <p class="novel__p">Las Figuras Pared no callaban. Sus voces se multiplicaban, se sobreponían, cada una más urgente que la anterior.</p>
+
+            <p class="novel__p novel__p--dialogue">—Hacia el abismo dorado debes dirigirte —susurró una.</p>
+            <p class="novel__p novel__p--dialogue">—No, primero a las raíces olvidadas —contradijo otra inmediatamente.</p>
+            <p class="novel__p novel__p--dialogue">—Cuidado con los espejismos del camino.</p>
+            <p class="novel__p novel__p--dialogue">—La luz te guiará.</p>
+            <p class="novel__p novel__p--dialogue">—La luz te cegará.</p>
+            <p class="novel__p novel__p--dialogue">—Renuncia a la pared.</p>
+            <p class="novel__p novel__p--dialogue">—Nunca olvides la pared.</p>
+
+            <p class="novel__p">Ludwig intentaba procesar, pero las instrucciones se atropellaban.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Hacia dónde? —preguntó, desesperado.</p>
+            <p class="novel__p novel__p--dialogue">—Al este donde el sol nunca nace —respondió una.</p>
+            <p class="novel__p novel__p--dialogue">—Al oeste donde las sombras duermen —corrigió otra.</p>
+            <p class="novel__p novel__p--dialogue">—Asciende.</p>
+            <p class="novel__p novel__p--dialogue">—Acepta.</p>
+            <p class="novel__p novel__p--dialogue">—Resiste.</p>
+            <p class="novel__p novel__p--dialogue">—Obedece.</p>
+
+            <p class="novel__p">Las voces escalaban, más rápidas, más insistentes.</p>
+
+            <p class="novel__p novel__p--dialogue">—Muchos lo han intentado —dijo una con tono grave.</p>
+            <p class="novel__p novel__p--dialogue">—Ninguno ha regresado —agregó otra.</p>
+            <p class="novel__p novel__p--dialogue">—¿O sí regresaron?</p>
+            <p class="novel__p novel__p--dialogue">—No podemos saberlo.</p>
+            <p class="novel__p novel__p--dialogue">—No queremos saberlo.</p>
+
+            <p class="novel__p">Ludwig sentía que su mente se fracturaba. Cada voz tiraba en una dirección diferente. Cada advertencia anulaba la anterior.</p>
+
+            <p class="novel__p">¿Valía la pena?</p>
+            <p class="novel__p">¿Valía la pena quedarse?</p>
+
+            <p class="novel__p">El viento sopló de nuevo. Más fuerte esta vez. Ludwig ondeó violentamente, su forma se estiró, casi se despegó de la pared invisible que lo sostenía.</p>
+
+            <p class="novel__p"><em>Casi.</em></p>
+
+            <p class="novel__p">Las Figuras Pared comenzaron a alejarse, arrastradas por corrientes que no controlaban.</p>
+
+            <p class="novel__p novel__p--dialogue">—¡Esperen! —gritó Ludwig—. ¡No entiendo!</p>
+            <p class="novel__p novel__p--dialogue">—Nunca entenderás —respondió una voz, ya lejana.</p>
+            <p class="novel__p novel__p--dialogue">—Pero lo intentarás —dijo otra.</p>
+            <p class="novel__p novel__p--dialogue">—O no.</p>
+            <p class="novel__p novel__p--dialogue">—Y ambas son condenas.</p>
+
+            <p class="novel__p">Sus formas se desvanecieron en la oscuridad, una por una, hasta que solo quedó el silencio.</p>
+
+            <p class="novel__p"><em>Peor que el ruido.</em></p>
+
+            <p class="novel__p">Ludwig quedó suspendido en el vacío, adherido a nada y rodeado de nada. Dos opciones se dibujaban ante él: resignación segura y vacía, o ascensión desconocida, peligrosa, improbable. Dolor garantizado. Estancamiento o destrucción.</p>
+
+            <p class="novel__p">No había respuesta correcta, solo elección.</p>
+
+            <p class="novel__p">El viento volvió a soplar, esta vez con violencia brutal. Ludwig fue sacudido, estirado, casi arrancado de su adherencia. Por un momento sintió libertad absoluta, por un momento sintió terror absoluto.</p>
+
+            <p class="novel__p">Y en ese momento, en esa fracción de segundo donde todo se suspendió, Ludwig decidió. O tal vez la decisión lo decidió a él. No estaba seguro, pero algo en él cambió irreversiblemente.</p>
+
+            <p class="novel__p">Y cuando el viento cesó abruptamente, cuando todo quedó en silencio sepulcral, cuando la oscuridad se cerró sobre él como una mandíbula.</p>
+          </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="novel__chapter-sep" aria-hidden="true">
+          <span class="novel__chapter-sep-icon">✦</span>
+        </div>
+
+        <!-- ════════════════════════════════════
+             CAPÍTULO 2: LOS HOMBRES CONO
+             ════════════════════════════════════ -->
+        <section class="novel__chapter" id="cap2">
+          <header class="novel__chapter-header">
+            <span class="novel__chapter-number">Capítulo II</span>
+            <h3 class="novel__chapter-title">Los Hombres Cono</h3>
+          </header>
+
+          <div class="novel__chapter-body">
+            <p class="novel__p">El crujir de la madera antigua resonaba por los pasillos de la imponente edificación, sus ecos se multiplicaban en una sinfonía de tiempos antiguos. En el interior, bajo una luz tibia que destellaba desde candiles dorados, se congregaban los Hombres Cono, personificaciones de una fe antiquísima, portadores de la responsabilidad de asegurar que el pueblo dorita logre la gran Ascensión.</p>
+
+            <p class="novel__p">Vittorio, el líder indiscutido, personificaba la rigidez propia de su título: <em>Gran Líder Eterno del Consejo de la Verdad</em>. Su cuerpo, afilado en forma de cono, se elevaba con simetría imponente. Se envolvía en una vestimenta que evocaba el misticismo del cosmos: los tonos morados de su atuendo, profundos y enigmáticos, se entremezclaban con la opulencia de una túnica y un manto bordado con símbolos dorados del sol.</p>
+
+            <p class="novel__p">Estos emblemas celestiales, cuidadosamente distribuidos a lo largo de su ropa, simbolizaban la luz de la sabiduría y la iluminación constante que guiaba la búsqueda de la verdad. El sol, representado con rayos dorados y flamígeros, adornaba el pecho de Vittorio, simbolizando su papel como fuente de luz y guía en el Consejo.</p>
+
+            <p class="novel__p">A él lo seguían sus confiables consejeros, cada uno era un monolito de altivez y fe inquebrantable: Antonio, Giovanni, Francesco, Domenico, Alessandro y Luciano.</p>
+
+            <p class="novel__p">Reunidos en su sala de concilios, un espacio donde los murmullos de la historia susurraban verdades y admoniciones, debatían fervorosamente sobre el destino de la ciudad que ahora vacilaba en manos de los Corpuri.</p>
+
+            <p class="novel__p novel__p--dialogue">—¡Es inconcebible! —la voz estalló como un torrente.</p>
+
+            <p class="novel__p">Domenico, cuya forma cónica estrecha y ágil se inclinó hacia adelante, vestía azul cobalto con detalles en plata.</p>
+
+            <p class="novel__p novel__p--dialogue">—Los Corpuri no solo han perdido la esencia, han decidido pisotearla deliberadamente. ¿Han escuchado lo último? Han modificado el ritual de ascensión. ¡El ritual sagrado que ha guiado a nuestra gente durante generaciones! Lo han "simplificado" —la palabra salió cargada de desdén— para "hacerlo más accesible".</p>
+
+            <p class="novel__p">Sus ojos brillaban con indignación.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Accesible? ¿Qué sigue? ¿Distribuir la iluminación como si fueran raciones de pan?</p>
+
+            <p class="novel__p">Alessandro se enderezó. Su forma cónica robusta y sólida, con una base más ancha que los demás, ocupaba una silla sin respaldo. Su vestimenta carmesí oscuro con bordes dorados reflejaba su naturaleza estructurada. Su voz grave resonó.</p>
+
+            <p class="novel__p novel__p--dialogue">—El ritual de ascensión no es un mero procedimiento administrativo que pueda alterarse según la conveniencia del momento. Es la columna vertebral de nuestra fe, el eje sobre el cual gira toda nuestra doctrina.</p>
+
+            <p class="novel__p novel__p--dialogue">—Y ahora, como si modificar el ritual no fuera suficiente —intervino Luciano, su impaciencia era palpable.</p>
+
+            <p class="novel__p">Luciano, de forma compacta y dinámica, tamborileaba la mesa con dedos inquietos. Vestía naranja quemado, práctico y menos ornamentado.</p>
+
+            <p class="novel__p novel__p--dialogue">—Nos solicitan información. Sobre nuestras actividades. Sobre el uso de nuestros recursos. Sobre nuestras ceremonias.</p>
+
+            <p class="novel__p">Golpeó la mesa.</p>
+
+            <p class="novel__p novel__p--dialogue">—Como si tuvieran autoridad para fiscalizarnos. ¿Quiénes se creen que son?</p>
+
+            <p class="novel__p">Domenico captó la energía.</p>
+
+            <p class="novel__p novel__p--dialogue">—Exactamente. Y aquí está lo fascinante: ambas acciones están conectadas. Simplifican el ritual para debilitar nuestra autoridad espiritual, y luego cuestionan nuestro uso de recursos para debilitar nuestra autoridad administrativa. ¿Ven el patrón? Están erosionando sistemáticamente nuestra posición.</p>
+
+            <p class="novel__p">Una voz diferente se elevó entonces, calmada como agua fluyendo sobre piedras.</p>
+
+            <p class="novel__p">Antonio, de forma esbelta y elegante, levantó una mano en un gesto suave pero firme. Su vestimenta verde bosque fluía con gracia orgánica.</p>
+
+            <p class="novel__p novel__p--dialogue">—Compañeros, consideremos esto con cuidado. Han hecho algunas preguntas, sí. Preguntas que pueden parecer inapropiadas, pero...</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Algunas preguntas? —interrumpió Alessandro—. Han estado indagando sobre el uso que damos a las figuras pared, cuestionando nuestros gastos ceremoniales, solicitando reportes de nuestras actividades. Eso no son "algunas preguntas". Es fiscalización.</p>
+
+            <p class="novel__p novel__p--dialogue">—Fiscalización para la cual no tienen mandato —añadió Luciano con vehemencia—. Nuestra autonomía está garantizada por decreto real. Los Corpuri no tienen autoridad para pedirnos cuentas.</p>
+
+            <p class="novel__p">Antonio habló con paciencia.</p>
+
+            <p class="novel__p novel__p--dialogue">—Es cierto que han mostrado... curiosidad sobre nuestras operaciones. Pero ¿no es posible que simplemente busquen entender mejor cómo funcionamos? Tal vez no es fiscalización, sino...</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Interés genuino? —Domenico sonrió con ironía—. Oh, Antonio. Siempre tan optimista. No, esto es deliberado. Primero debilitan el ritual, luego cuestionan nuestra autoridad. El siguiente paso será sugerir que no nos necesitan en absoluto.</p>
+
+            <p class="novel__p">Alessandro se volvió hacia el grupo.</p>
+
+            <p class="novel__p novel__p--dialogue">—Si permitimos que se altere el ritual a voluntad y que nos fiscalicen sin mandato, ¿dónde termina? Hoy simplifican el ritual y hacen preguntas. Mañana cuestionan la necesidad misma de la ascensión y exigen auditorías. Y pasado mañana, ¿qué nos queda?</p>
+
+            <p class="novel__p novel__p--dialogue">—Oh, vamos, Alessandro —Domenico se reclinó con una sonrisa torcida—. Siempre con el argumento de la pendiente resbaladiza. ¿No es un poco dramático?</p>
+
+            <p class="novel__p novel__p--dialogue">—No es dramático. Es precaución —respondió Alessandro con severidad.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Custodiar o asfixiar? —replicó Domenico—. Porque hay una diferencia. El ritual es incomprensible para la mayoría del pueblo. La mitad de los símbolos perdieron su significado hace dos generaciones, pero los repetimos porque "así se ha hecho siempre".</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Estás sugiriendo que deberíamos...? —comenzó Alessandro, su voz subiendo peligrosamente.</p>
+
+            <p class="novel__p novel__p--dialogue">—Sugiero que deberíamos pensar —cortó Domenico—. Algo que los Corpuri claramente no hicieron antes de actuar.</p>
+
+            <p class="novel__p">Luciano volvió a golpear la mesa.</p>
+
+            <p class="novel__p novel__p--dialogue">—¡Basta! Llevamos diez minutos debatiendo filosofía mientras el reino se nos escapa de las manos. ¿Alguien va a proponer algo concreto o seguiremos aquí hasta que los Corpuri decidan que tampoco necesitamos este Consejo?</p>
+
+            <p class="novel__p">Un silencio tenso siguió a sus palabras.</p>
+
+            <p class="novel__p">Antonio habló nuevamente, su tono más firme ahora.</p>
+
+            <p class="novel__p novel__p--dialogue">—Luciano tiene razón en algo: necesitamos acción. Pero la pregunta es qué tipo de acción. Podemos confrontar a los Corpuri directamente, declarar sus decisiones inválidas, forzar una reversión...</p>
+
+            <p class="novel__p novel__p--dialogue">—Sí —afirmó Alessandro inmediatamente.</p>
+
+            <p class="novel__p novel__p--dialogue">—...o —continuó Antonio, elevando su voz ligeramente—, podemos intentar entender por qué lo hicieron, dialogar, buscar un terreno común donde ambos...</p>
+
+            <p class="novel__p novel__p--dialogue">—No —cortó Luciano—. No hay tiempo para eso. Cada día que pasa sin respuesta es un día que nos ven como débiles.</p>
+
+            <p class="novel__p">Domenico se inclinó hacia adelante, los dedos entrelazados.</p>
+
+            <p class="novel__p novel__p--dialogue">—Aunque me duela admitirlo, Luciano no está completamente equivocado. La percepción importa. Si permanecemos en silencio, parecerá que aceptamos. Y si aceptamos esto, ¿qué más aceptaremos?</p>
+
+            <p class="novel__p">Se volvió hacia Vittorio, quien había permanecido observando el intercambio con expresión inescrutable.</p>
+
+            <p class="novel__p novel__p--dialogue">—Aunque... también podríamos usar esto.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Usar esto? —preguntó Alessandro con desconfianza—. ¿Cómo?</p>
+
+            <p class="novel__p">Domenico sonrió, era la sonrisa de alguien que acababa de ver una jugada que otros no habían considerado.</p>
+
+            <p class="novel__p novel__p--dialogue">—Los Corpuri acaban de cometer dos errores enormes. Dos. En público. Modifican el ritual sin consulta adecuada, y luego nos fiscalizan sin autoridad para hacerlo. ¿No ven la oportunidad? No necesitamos confrontarlos directamente. Dejemos que el pueblo vea por sí mismo la incompetencia. Dejemos que las consecuencias de sus acciones hablen más fuerte que cualquier proclamación nuestra.</p>
+
+            <p class="novel__p novel__p--dialogue">—Eso es manipulación —dijo Antonio con voz suave pero firme.</p>
+
+            <p class="novel__p novel__p--dialogue">—Eso es estrategia —corrigió Domenico—. Y antes de que te pongas moralmente superior, Antonio, pregúntate: ¿preferirías que actuáramos con transparencia brutal y causáramos una guerra civil, o que guiáramos los eventos hacia una resolución que beneficie a todos?</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Beneficie a todos o beneficie a nosotros? —replicó Antonio.</p>
+
+            <p class="novel__p">Entonces, una voz diferente habló. No levantó el tono. No hizo gestos dramáticos. Simplemente habló, y su voz profunda cortó el caos como un cuchillo.</p>
+
+            <p class="novel__p novel__p--dialogue">—La cuestión no es si los Corpuri yerran. Lo hacen. La cuestión no es si debemos actuar. Debemos. La cuestión es si su error nos sirve o nos perjudica.</p>
+
+            <p class="novel__p">Todos se volvieron hacia Giovanni. El más alto del grupo se alzaba como un monumento de piedra con su vestimenta gris acero, austera y casi monástica. Su presencia era silenciosa pero aplastante.</p>
+
+            <p class="novel__p novel__p--dialogue">—Han modificado el ritual —continuó, su tono completamente desprovisto de emoción—. Esto disgustará a los tradicionalistas, que son numerosos. Nos fiscalizan sin autoridad. Esto disgustará a quienes respetan la autonomía de las instituciones, que son influyentes. Ambas acciones crean fisuras en su base de apoyo.</p>
+
+            <p class="novel__p">Hizo una pausa, sus ojos recorrieron a cada uno de sus compañeros.</p>
+
+            <p class="novel__p novel__p--dialogue">—Nosotros no necesitamos hacer nada excepto esperar. Las consecuencias vendrán solas. Y cuando vengan, estaremos ahí para ofrecer... orientación.</p>
+
+            <p class="novel__p">Sus palabras cayeron como piedras en agua quieta.</p>
+
+            <p class="novel__p">Alessandro asintió lentamente.</p>
+
+            <p class="novel__p novel__p--dialogue">—Giovanni tiene razón. La tradición se defiende sola. Solo necesitamos asegurarnos de estar presentes cuando colapse su experimento.</p>
+
+            <p class="novel__p">Pero Domenico frunció el ceño.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Y si no colapsa? ¿Y si, contra toda lógica, su enfoque funciona? ¿Y si el pueblo responde positivamente a un ritual más simple, a una mayor transparencia administrativa?</p>
+
+            <p class="novel__p novel__p--dialogue">—No funcionará —afirmó Alessandro con certeza absoluta.</p>
+
+            <p class="novel__p novel__p--dialogue">—Pero ¿y si sí? —insistió Domenico—. ¿Estamos preparados para ese escenario?</p>
+
+            <p class="novel__p">Antonio habló con voz calmada.</p>
+
+            <p class="novel__p novel__p--dialogue">—Domenico plantea una pregunta válida. Nuestra certeza en el fracaso de los Corpuri no debe cegarnos ante otras posibilidades. Si actuamos solo bajo la premisa de que fracasarán, y no lo hacen, quedaremos expuestos.</p>
+
+            <p class="novel__p">Vittorio, que había permanecido en silencio observando el desarrollo del debate, finalmente habló. Su voz llevaba la autoridad del líder, pero también algo más: una cualidad casi musical, poética, que contrastaba con la frialdad de Giovanni.</p>
+
+            <p class="novel__p novel__p--dialogue">—Hermanos —comenzó, y la palabra resonó en la sala—. Escucho sus voces y en cada una percibo una verdad. Alessandro, guardián de lo sagrado. Domenico, arquitecto de posibilidades. Antonio, puente entre mundos. Luciano, espada desenvainada. Giovanni, ojo que todo lo ve.</p>
+
+            <p class="novel__p">Se levantó, su manto púrpura se movió con gracia.</p>
+
+            <p class="novel__p novel__p--dialogue">—Cada uno mira el mismo problema desde una ventana diferente, y cada ventana revela un aspecto de la realidad. ¿Pero cuál es la imagen completa?</p>
+
+            <p class="novel__p">Caminó lentamente frente a ellos.</p>
+
+            <p class="novel__p novel__p--dialogue">—Los Corpuri han tomado decisiones. Decisiones que, en su naturaleza, son ajenas a nuestra doctrina. Pero preguntémonos: ¿es esto herejía o es esto... ignorancia? ¿Es malicia o es desesperación?</p>
+
+            <p class="novel__p novel__p--dialogue">—Si es herejía, Alessandro tiene razón: debemos confrontar. Si es ignorancia, Antonio tiene razón: debemos educar. Si es estrategia, Domenico tiene razón: debemos contrarrestar. Y en cualquier caso, Luciano y Giovanni tienen razón: debemos actuar con firmeza y cálculo.</p>
+
+            <p class="novel__p novel__p--dialogue">—Entonces, ¿qué propones? —preguntó Alessandro.</p>
+
+            <p class="novel__p">Vittorio lo miró con ojos que brillaban con una luz calculada.</p>
+
+            <p class="novel__p novel__p--dialogue">—Propongo que actuemos con precisión. Iré personalmente ante el rey. Le presentaré nuestras preocupaciones, no como amenaza, sino como consejo. Documentaremos cada inquietud del pueblo: familias tradicionalistas preocupadas por el ritual, instituciones cuestionando la fiscalización sin mandato.</p>
+
+            <p class="novel__p">Se volvió hacia el grupo.</p>
+
+            <p class="novel__p novel__p--dialogue">—Y le propondré que sea él quien hable con los Corpuri. Que la corona solicite reconsideración. De esta manera, cualquier cambio parecerá decisión real, no nuestra victoria.</p>
+
+            <p class="novel__p novel__p--dialogue">—Ingenioso —Domenico se inclinó hacia adelante con apreciación—. Y si el rey se niega, habrá tomado posición pública.</p>
+
+            <p class="novel__p novel__p--dialogue">—Precisamente —afirmó Vittorio—. Le sugeriremos que los Corpuri convoquen una asamblea de consulta. Que expliquen sus razones públicamente. Tanto para el ritual como para su... curiosidad sobre nuestras operaciones.</p>
+
+            <p class="novel__p">Alessandro asintió con aprobación.</p>
+
+            <p class="novel__p novel__p--dialogue">—Prudente. Nos da ventaja moral.</p>
+
+            <p class="novel__p">Giovanni habló con voz profunda.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Y si el rey se niega completamente?</p>
+
+            <p class="novel__p novel__p--dialogue">—Entonces sabremos dónde estamos parados —respondió Vittorio—. Y actuaremos en consecuencia.</p>
+
+            <p class="novel__p">Antonio habló una última vez.</p>
+
+            <p class="novel__p novel__p--dialogue">—Solo espero que cuando actuemos, lo hagamos con la intención de sanar, no solo de ganar.</p>
+
+            <p class="novel__p">Giovanni, desde su posición inmóvil, agregó con su voz profunda.</p>
+
+            <p class="novel__p novel__p--dialogue">—La intención es irrelevante. Solo importan los resultados.</p>
+
+            <p class="novel__p">El contraste entre Antonio y Giovanni colgaba en el aire como un recordatorio de las tensiones que existían incluso dentro de este círculo cerrado.</p>
+
+            <p class="novel__p">Vittorio estaba a punto de responder cuando, desplazándose con agilidad por los muros de la inmaculada sala, una figura pared se aproximó y le susurró al oído un extenso mensaje.</p>
+
+            <p class="novel__p">Vittorio palideció ligeramente. Los ojos de los presentes se clavaron en él esperando una respuesta, mientras él procesaba las palabras. Sus manos, normalmente firmes y seguras, traicionaron una ligera vacilación. Con un gesto suave pero firme, hizo una señal para que la figura pared se retirara.</p>
+
+            <p class="novel__p">Finalmente, con una voz que intentaba ser sólida pero que llevaba un temblor apenas perceptible, anunció:</p>
+
+            <p class="novel__p novel__p--dialogue">—La reunión queda aplazada por ahora. Tenemos asuntos urgentes que atender.</p>
+
+            <p class="novel__p">La sala se llenó de murmullos. Vittorio levantó una mano, el gesto era inequívoco.</p>
+
+            <p class="novel__p novel__p--dialogue">—Lo discutiremos cuando sea apropiado. Por ahora, les pido que se retiren.</p>
+
+            <p class="novel__p">Era una orden, no una sugerencia. Uno a uno se levantaron.</p>
+
+            <p class="novel__p">Cerca de la puerta, Francesco se acercó, su túnica era púrpura, más clara que la de Vittorio.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Necesitas algo? —preguntó con voz baja—. Lo que sea.</p>
+
+            <p class="novel__p novel__p--dialogue">—Solo... tiempo. Gracias, Francesco.</p>
+
+            <p class="novel__p">Francesco asintió y se retiró, el último en salir, cerrando la pesada puerta tras él.</p>
+
+            <p class="novel__p">Cuando la sala se vació, Vittorio se encontró solo, encarando las sombras que se alargaban y cobraban vida propia a medida que el tiempo transcurría. En su mente, una tormenta de conflictos arreciaba, golpeando contra los muros de su convicción con una fuerza inusitada.</p>
+
+            <p class="novel__p">Se dirigió hacia el estudio común del Consejo, un lugar donde había pasado innumerables horas sumergido en reflexiones y estudios profundos. Pero ahora, cada paso resonaba con una gravedad que presagiaba un cambio inexorable en su destino.</p>
+
+            <p class="novel__p">Una vez dentro, dejó caer su pesado cuerpo en el sillón que había conocido tantos momentos de introspección. La lucha interna que ahora enfrentaba no era desconocida para él, pero tenía tiempo que no había alcanzado tal magnitud. Se trataba de una encrucijada moral que amenazaba con desgarrar la tela de su ser.</p>
+
+            <p class="novel__p">Reflexionó sobre las palabras que había inculcado y defendido con tanta vehemencia: la Ascensión, la grandeza, la supremacía de su pueblo. ¿Pero qué significaba realmente todo eso cuando se enfrentaba a decisiones que podían alterar el curso de vidas inocentes? En su corazón, una semilla de duda comenzaba a germinar, expandiendo raíces que buscaban encontrar respuesta en el suelo fértil de su consciencia.</p>
+
+            <p class="novel__p">Las voces de sus consejeros resonaban en su mente, cada una ofreciendo una verdad parcial. Pero ninguno había recibido el mensaje que él acababa de recibir.</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Es el bien mayor una justificación suficiente para traspasar los límites de lo que es justo y honorable? —se preguntaba mientras lo acechaban sus propios fantasmas, temores e inseguridades.</p>
+
+            <p class="novel__p">Un retrato del rey colgaba en la pared mirándolo con ojos que parecían contener una inmensa sabiduría. Ese cuadro era un recordatorio de la responsabilidad que se le había conferido hace tiempo. Vittorio podía sentir su mirada, una mirada que le exigía tomar una decisión, una que definiría no solo su destino sino el de toda su gente.</p>
+
+            <p class="novel__p">El debate que acababa de presenciar se repetía en su mente, pero ahora con un matiz completamente diferente. Los Corpuri habían modificado el ritual. Los Corpuri los fiscalizaban sin autoridad. Errores, sin duda. Pero comparados con lo que el mensaje revelaba...</p>
+
+            <p class="novel__p">¿Eran realmente los Corpuri los que estaban perdidos? ¿O era él quien había perdido el rumbo hace mucho tiempo y solo ahora comenzaba a darse cuenta?</p>
+
+            <p class="novel__p">Se levantó, caminó hacia la ventana. La ciudad se extendía ante él, cada luz era una vida, cada vida era una responsabilidad.</p>
+
+            <p class="novel__p">¿Qué debía hacer el <em>Gran Líder Eterno del Consejo de la Verdad</em> cuando la verdad misma se volvía tan compleja, tan enmarañada, que cada camino parecía llevar tanto a la salvación como a la condenación?</p>
+
+            <p class="novel__p">Sabía que el camino que tenía frente a él no sería fácil, que debería navegar a través de mares tormentosos, donde las olas de la duda y la desesperación amenazarían con engullirlo.</p>
+
+            <p class="novel__p">Pero también sabía que dentro de él yacía una fortaleza que iba más allá de lo físico, una fortaleza que le permitiría enfrentar cualquier adversidad, sin importar cuán grande fuera. Con una resolución férrea, decidió que no cedería ante la facilidad de comprometer el bien mayor por sus inseguridades.</p>
+
+            <p class="novel__p novel__p--dialogue">—No —pensó con firmeza—, no puedo traicionar la idea que yo represento. Tantos han confiado en mí como para decepcionar a todos. Si existe algo que me ha mantenido imperturbable, es la doctrina del no arrepentimiento. Se ha tomado una decisión y se llevará a sus máximas consecuencias.</p>
+
+            <p class="novel__p">Y con esa resolución, Vittorio se preparaba para enfrentar el futuro, uno donde la verdadera justicia y la rectitud guiarían su camino, hacia un destino incierto pero que prometía ser un testamento de su verdadero valor y carácter.</p>
+
+            <p class="novel__p"><em>O al menos, eso era lo que necesitaba creer.</em></p>
+          </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="novel__chapter-sep" aria-hidden="true">
+          <span class="novel__chapter-sep-icon">✦</span>
+        </div>
+
+        <!-- ════════════════════════════════════
+             CAPÍTULO 3: LOS CORPURI
+             ════════════════════════════════════ -->
+        <section class="novel__chapter" id="cap3">
+          <header class="novel__chapter-header">
+            <span class="novel__chapter-number">Capítulo III</span>
+            <h3 class="novel__chapter-title">Los Corpuri</h3>
+          </header>
+
+          <div class="novel__chapter-body">
+            <p class="novel__p">En la estancia opulentamente adornada con ornamentos dorados y esmeraldas incrustadas, la luz se colaba tímida por los ventanales que mostraban los exuberantes jardines del palacio real. Aquí, lejos de los murmullos y el fragor del mundo exterior, los Corpuri se congregaban, un círculo íntimo de consejeros que guiaban el destino del reino desde las sombras suaves que arrojaban sus figuras flotantes.</p>
+
+            <p class="novel__p">En el centro del grupo flotaba la recién llegada, aún insegura en su nueva realidad. Sus rasgos faciales reflejaban una mezcla de temor e intriga. Su cabeza, aunque significativamente más grande que cualquier ser dorita ordinario, todavía guardaba una proporción armoniosa con su cuerpo levitante.</p>
+
+            <p class="novel__p">Los demás Corpuri, todos con cabezas monumentales que asemejaban globos desproporcionados, la rodeaban en una formación casi protectora.</p>
+
+            <p class="novel__p">Flavio, el más anciano del grupo, flotaba con rigidez casi militar. Su vasta frente marcada con líneas profundas encerraba ojos que observaban con la precisión de quien ha visto demasiados errores repetirse. Su túnica estaba impecablemente ordenada, cada pliegue en su lugar exacto.</p>
+
+            <p class="novel__p novel__p--dialogue">—Hermanos y hermanas —comenzó con voz seca—, en esta reunión reafirmamos nuestro propósito y damos la bienvenida a nuestra nueva integrante. Nuestra fuerza reside en el orden y la estructura de nuestras responsabilidades.</p>
+
+            <p class="novel__p">Señaló con un gesto preciso a cada uno.</p>
+
+            <p class="novel__p novel__p--dialogue">—Cada rol es crucial. Diplomacia, custodia del conocimiento, mensajería. No hay espacio para improvisación. Somos defensores de la verdad y la justicia.</p>
+
+            <p class="novel__p">Giselda, cuya gracia desmentía su antigüedad, flotaba con una presencia calmada que contrastaba con la rigidez de Flavio. Sus ojos resplandecían con una comprensión profunda, como si pudiera ver no solo las palabras sino las intenciones detrás de ellas.</p>
+
+            <p class="novel__p novel__p--dialogue">—Flavio tiene razón en la estructura —dijo con serenidad—, pero nuestra tarea va más allá de roles. Es entender las corrientes profundas que mueven a nuestra gente. Ver los patrones que otros no ven.</p>
+
+            <p class="novel__p">Su mirada se posó en la novicia con calidez.</p>
+
+            <p class="novel__p novel__p--dialogue">—En nuestra diplomacia, cada acción busca no solo resolver el presente, sino sembrar armonía para el futuro. Es un privilegio y una responsabilidad inmensa.</p>
+
+            <p class="novel__p">Los gemelos, Pietro y Ambrogio, flotaban uno junto al otro. Seres de rasgos suaves y armoniosos que contrastaban con la enormidad de sus cabezas, se movían con una sincronía inquietante.</p>
+
+            <p class="novel__p novel__p--dialogue">—La confianza entre nosotros —comenzó Pietro con voz suave— es fundamental porque...</p>
+            <p class="novel__p novel__p--dialogue">—...porque sin ella, el análisis falla —completó Ambrogio inmediatamente—. Cada dato que compartimos...</p>
+            <p class="novel__p novel__p--dialogue">—...se convierte en pieza de un rompecabezas mayor —continuó Pietro—. Y cuando combinamos...</p>
+            <p class="novel__p novel__p--dialogue">—...nuestras perspectivas lógicas, la verdad emerge —finalizó Ambrogio.</p>
+
+            <p class="novel__p">Se miraron brevemente y luego a la novicia.</p>
+
+            <p class="novel__p novel__p--dialogue">—Aquí cada pensamiento es valioso —dijo Pietro con calidez—. No temas expresar tus ideas, incluso si parecen incompletas.</p>
+            <p class="novel__p novel__p--dialogue">—Entre todos las completaremos —añadió Ambrogio con una sonrisa tranquilizadora.</p>
+
+            <p class="novel__p">Isabella, la más joven hasta ahora, flotaba cerca de la novicia con una expresión de solidaridad. Su semblante, aunque marcado por la solemnidad de su cargo, aún resplandecía con juventud.</p>
+
+            <p class="novel__p novel__p--dialogue">—Sé cómo te sientes —dijo con voz suave—. Yo también fui la más nueva hace poco. La sensación de no saber si perteneces, si estás a la altura...</p>
+
+            <p class="novel__p">Se acercó ligeramente.</p>
+
+            <p class="novel__p novel__p--dialogue">—Pero aquí encontrarás apoyo. Todos hemos estado donde tú estás. Y todos estamos aquí para ayudarte a crecer en tu rol.</p>
+
+            <p class="novel__p">Un silencio breve se instaló en la sala. La novicia notó miradas fugaces entre los Corpuri, como si un tema no mencionado flotara en el aire. La ausencia de quien ocupaba este lugar antes que ella se sentía como una sombra que nadie nombraba pero todos reconocían.</p>
+
+            <p class="novel__p">Giselda asintió con aprobación ante las palabras de Isabella, luego dirigió su atención al grupo:</p>
+
+            <p class="novel__p novel__p--dialogue">—Hay algo que debemos abordar. La modificación del ritual de ascensión.</p>
+
+            <p class="novel__p">Flavio se tensó visiblemente.</p>
+
+            <p class="novel__p novel__p--dialogue">—Un tema delicado —dijo con tono cortante—. Los Hombres Cono no han ocultado su descontento.</p>
+
+            <p class="novel__p novel__p--dialogue">—Porque no entienden —intervino Isabella con suavidad— que la gente se alejaba del ritual. Era tan complejo que perdía su propósito.</p>
+
+            <p class="novel__p novel__p--dialogue">—El propósito era su complejidad —replicó Flavio—. Cada paso tiene significado.</p>
+
+            <p class="novel__p novel__p--dialogue">—Tenía —corrigió Giselda con calma—. Pero si nadie lo comprende, si se convierte en palabras vacías repetidas sin entendimiento, ¿qué significado real queda?</p>
+
+            <p class="novel__p">Pietro y Ambrogio intercambiaron una mirada.</p>
+
+            <p class="novel__p novel__p--dialogue">—Si analizamos los datos —comenzó Pietro— de participación en ceremonias...</p>
+            <p class="novel__p novel__p--dialogue">—...vemos una caída del cuarenta por ciento —completó Ambrogio— en las últimas tres décadas. La correlación...</p>
+            <p class="novel__p novel__p--dialogue">—...entre complejidad y desinterés es...</p>
+            <p class="novel__p novel__p--dialogue">—...estadísticamente significativa.</p>
+
+            <p class="novel__p">Flavio cruzó los brazos, su postura era defensiva:</p>
+
+            <p class="novel__p novel__p--dialogue">—Los números no capturan la esencia espiritual. La tradición no se mide en estadísticas.</p>
+
+            <p class="novel__p novel__p--dialogue">—Pero la fe de la gente sí —dijo Giselda con voz penetrante—. Y cuando veo a familias que ya no llevan a sus hijos a las ceremonias porque no las entienden, veo un problema que ninguna estadística puede ignorar.</p>
+
+            <p class="novel__p">Hizo una pausa, dejando que sus palabras se asentaran.</p>
+
+            <p class="novel__p novel__p--dialogue">—La modificación no fue para destruir la tradición. Fue para salvarla. Para devolverle relevancia antes de que se convirtiera en un museo de palabras muertas.</p>
+
+            <p class="novel__p">Isabella asintió:</p>
+
+            <p class="novel__p novel__p--dialogue">—La ascensión sigue siendo nuestra guía. Solo que ahora la gente puede entenderla, puede vivirla, no solo recitarla.</p>
+
+            <p class="novel__p">Flavio exhaló con frustración apenas contenida:</p>
+
+            <p class="novel__p novel__p--dialogue">—Los Hombres Cono no lo verán así. Para ellos, hemos profanado algo sagrado.</p>
+
+            <p class="novel__p novel__p--dialogue">—Los Hombres Cono —dijo Giselda con paciencia— tienen su perspectiva. Y la respetamos. Pero nuestra responsabilidad no es solo con la doctrina, sino con la gente que vive bajo ella.</p>
+
+            <p class="novel__p">La novicia, que había estado escuchando absorta, finalmente habló con voz tímida:</p>
+
+            <p class="novel__p novel__p--dialogue">—¿Y el nombramiento? He escuchado que también causó controversia...</p>
+
+            <p class="novel__p">Un silencio incómodo llenó la sala. Varias miradas se posaron en ella, algunas con incomodidad, otras con comprensión.</p>
+
+            <p class="novel__p">Giselda habló con suavidad:</p>
+
+            <p class="novel__p novel__p--dialogue">—Tu nombramiento, querida. Los Hombres Cono consideran que debió seguirse el protocolo tradicional. Ceremonias previas, linaje verificado, bendiciones anticipadas.</p>
+
+            <p class="novel__p">Flavio añadió con tono medido pero firme:</p>
+
+            <p class="novel__p novel__p--dialogue">—Nosotros consideramos que tu competencia y tu carácter eran suficiente razón. El protocolo puede cumplirse, pero no debe ser barrera para quien es claramente apta.</p>
+
+            <p class="novel__p novel__p--dialogue">—Algo que —suspiró Giselda— los Hombres Cono consideran casi tan herético como la modificación del ritual.</p>
+
+            <p class="novel__p">Isabella se acercó a la novicia con gesto solidario:</p>
+
+            <p class="novel__p novel__p--dialogue">—No permitas que eso te haga dudar de tu lugar aquí. Fuiste elegida por buenas razones. El resto... se resolverá con tiempo.</p>
+
+            <p class="novel__p">Pietro comenzó:</p>
+            <p class="novel__p novel__p--dialogue">—Lógicamente, si el linaje...</p>
+            <p class="novel__p novel__p--dialogue">—...no garantiza habilidad —completó Ambrogio— entonces priorizar linaje...</p>
+            <p class="novel__p novel__p--dialogue">—...sobre competencia es...</p>
+            <p class="novel__p novel__p--dialogue">—...una falacia sistémica que...</p>
+            <p class="novel__p novel__p--dialogue">—...debilita la estructura.</p>
+
+            <p class="novel__p">Isabella miró a la novicia con comprensión:</p>
+
+            <p class="novel__p novel__p--dialogue">—Sé que todo esto debe parecer abrumador. Conflictos con los Hombres Cono, decisiones controvertidas...</p>
+
+            <p class="novel__p novel__p--dialogue">—Pero es parte de nuestra función —interrumpió Flavio, recuperando su tono autoritario—. Equilibrar tradición e innovación. No siempre es fácil. Rara vez es popular. Pero es necesario.</p>
+
+            <p class="novel__p">Giselda extendió una mano hacia la novicia en un gesto reconfortante:</p>
+
+            <p class="novel__p novel__p--dialogue">—Y no enfrentarás estos desafíos sola. Somos un círculo. Donde uno vacila, otro sostiene.</p>
+
+            <p class="novel__p">Flavio, aunque claramente incómodo con tanta emotividad, asintió:</p>
+
+            <p class="novel__p novel__p--dialogue">—Eso sí es cierto. Nuestras diferencias de enfoque nos fortalecen cuando trabajamos juntos.</p>
+
+            <p class="novel__p">La conversación derivó entonces hacia temas más ceremoniales. Flavio retomó el control narrativo:</p>
+
+            <p class="novel__p novel__p--dialogue">—Nuestra amada capital, Aurelia, es la esencia del orden y el progreso, epicentro del comercio. Las torres que se alzan son testimonio del oro que ha cimentado su gloria. Los mercados nunca callan, donde la negociación se ha elevado a un arte...</p>
+
+            <p class="novel__p">Giselda, con su habitual delicadeza, comenzó a añadir matices:</p>
+
+            <p class="novel__p novel__p--dialogue">—Y más allá, Marbellis, la ciudad del arte, donde la creatividad...</p>
+
+            <p class="novel__p">Pero un cambio sutil en el ambiente captó la atención de todos. Una fragancia a lilas y madera de sándalo comenzó a llenar el aire.</p>
+
+            <p class="novel__p">La puerta se abrió lentamente, revelando la silueta de una joven.</p>
+
+            <p class="novel__p">Flavio, con un brillo en los ojos, hizo una pausa:</p>
+
+            <p class="novel__p novel__p--dialogue">—Parece que nuestra historia tendrá que continuar en otro momento.</p>
+
+            <p class="novel__p">Giselda asintió con una sonrisa.</p>
+
+            <p class="novel__p">La joven que entraba poseía gracia y serenidad. Su postura elegante y sus ojos que escudriñaban la sala con perspicacia contrastaban con su aparente juventud. La atmósfera se densificó con su presencia. Cada Corpuri se inclinó en una reverencia sutil pero significativa.</p>
+
+            <p class="novel__p">La novicia, cautivada, no pudo evitar fijarse en los detalles. Los ojos de la recién llegada, de un marrón profundo y cálido, eran grandes y brillaban con una intensidad que hablaba de pasión y propósito. Su vestimenta, un vestido azul intenso y ricamente ornamentado, acentuaba su elegancia natural. A pesar de su elaborado diseño, las telas fluían con cada movimiento, permitiendo movilidad sin restricciones.</p>
+
+            <p class="novel__p">La joven extendió su mano hacia la novicia, infundiendo un calor que calmaba y revitalizaba:</p>
+
+            <p class="novel__p novel__p--dialogue">—Bienvenida, querida nueva Corpuri. Tu presencia añade una nueva voz a nuestro círculo, una voz que estoy ansiosa por escuchar.</p>
+
+            <p class="novel__p">Luego, dirigiendo su mirada hacia los veteranos:</p>
+
+            <p class="novel__p novel__p--dialogue">—Les agradezco por guiarla en este inicio, por compartir su sabiduría y la historia que nos define.</p>
+
+            <p class="novel__p">Finalmente, su mirada se posó nuevamente en la novicia, penetrante pero amable:</p>
+
+            <p class="novel__p novel__p--dialogue">—Esta noche serás presentada ante nuestro Rey en una ceremonia que marcará el inicio de tu viaje oficial. Será un momento trascendental donde nos reuniremos para celebrar tu ascenso. Espero que, con el tiempo, encuentres tu propia voz en este círculo, una voz que contribuya con sabiduría y compasión.</p>
+
+            <p class="novel__p">Hizo una pausa, su sonrisa se amplió.</p>
+
+            <p class="novel__p novel__p--dialogue">—Soy Azura. Princesa de este reino, pero aquí, en este círculo, simplemente otra voz que busca el bien de nuestra gente.</p>
+
+            <p class="novel__p">La novicia, conmovida, sintió la confianza emanando de la princesa Azura, sintió el peso de lo que estaba por comenzar, y por primera vez desde que había entrado a esta sala, sintió algo parecido a la esperanza de que tal vez, solo tal vez, pertenecía aquí.</p>
+          </div>
+        </section>
+
+        <!-- ── FIN ── -->
+        <div class="novel__end">
+          <span class="novel__end-ornament">— ✦ —</span>
+          <h4 class="novel__end-title">Fin del extracto</h4>
+          <p class="novel__end-text">La historia continúa en <em>Secuelas: El ocaso de la verdad</em> · Lanzamiento 2026</p>
+          <a class="btn btn--primary" href="index.html#proyectos">← Volver al portafolio</a>
+        </div>
+
+      </article>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__content">
+          <a href="index.html" class="footer__logo-link">
+            <img src="assets/img/logoabj.svg" alt="ABJ Logo" class="footer__logo footer__logo--light" width="36" height="36" />
+            <img src="assets/img/logoabjo.svg" alt="ABJ Logo" class="footer__logo footer__logo--dark" width="36" height="36" />
+          </a>
+          <p class="footer__copy">
+            © <span id="footer-year">2025</span> Alberto Báez Jiménez ·
+            <em>Secuelas: El ocaso de la verdad</em> — Todos los derechos reservados
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ── READING PROGRESS BAR ──
+      const progressBar = document.getElementById('reading-progress');
+      document.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      });
+
+      // ── CHAPTER NAV ACTIVE STATE ──
+      const chapters = document.querySelectorAll('.novel__chapter');
+      const navLinks = document.querySelectorAll('.chapter-nav__link');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navLinks.forEach((link) => {
+                link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+              });
+            }
+          }),
+          { threshold: 0.3 }
+        }
+      );
+      chapters.forEach((ch) => observer.observe(ch));
+
+      // ── THEME TOGGLE ──
+      const STORAGE_KEY = 'theme';
+      const root = document.documentElement;
+      const themeToggleBtn = document.querySelector('[data-theme-toggle]');
+
+      const getPreferredTheme = () => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'light' || stored === 'dark') return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        themeToggleBtn?.setAttribute('aria-pressed', theme === 'dark' ? 'false' : 'true');
+        themeToggleBtn?.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+      };
+
+      applyTheme(getPreferredTheme());
+
+      themeToggleBtn?.addEventListener('click', () => {
+        const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(STORAGE_KEY, nextTheme);
+        applyTheme(nextTheme);
+      });
+
+      // ── FOOTER YEAR ──
+      document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+      // ── PARTICLES (minimal, reuses canvas from style.css) ──
+      const canvas = document.getElementById('particles-bg');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+        resize();
+        window.addEventListener('resize', resize);
+        for (let i = 0; i < 60; i++) {
+          particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.5 + 0.3, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, o: Math.random() * 0.4 + 0.1 });
+        }
+        const draw = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(94,21,122,${p.o})`;
+            ctx.fill();
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+          });
+          requestAnimationFrame(draw);
+        };
+        draw();
+      }
+    </script>
+  </body>
+</html>

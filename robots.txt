@@ -1,0 +1,12 @@
+# robots.txt - Portafolio Alberto Báez Jiménez
+# Permitir indexación de todos los motores de búsqueda
+# Dominio configurado: baezjimenez.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://baezjimenez.com/sitemap.xml
+
+# Rastreo optimizado
+Crawl-delay: 1

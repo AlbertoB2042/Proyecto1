@@ -1,67 +1,3192 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-lang="es" data-theme="dark">
   <head>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Estructura Semántica y Accesible</title>
+    <title>Portafolio de Alberto Báez Jiménez</title>
     <meta
       name="description"
-      content="Ejemplo de documento HTML semántico para SEO y lectores de pantalla."
+      content="Portafolio profesional de Alberto Báez Jiménez - Director de Proyecto, especialista en análisis de datos, optimización de operaciones y solución de conflictos."
     />
+
+    <!-- Dominio configurado: baezjimenez.com -->
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://baezjimenez.com/" />
+    <meta
+      property="og:title"
+      content="Alberto Báez Jiménez - Director de Proyecto | Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Profesionista con más de cuatro años liderando proyectos estratégicos. Especializado en análisis de datos, optimización de operaciones y toma de decisiones basada en información."
+    />
+    <meta
+      property="og:image"
+      content="https://baezjimenez.com/assets/img/og-image.jpg"
+    />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://baezjimenez.com/" />
+    <meta
+      name="twitter:title"
+      content="Alberto Báez Jiménez - Director de Proyecto"
+    />
+    <meta
+      name="twitter:description"
+      content="Profesionista con más de cuatro años liderando proyectos estratégicos y optimizando operaciones."
+    />
+    <meta
+      name="twitter:image"
+      content="https://baezjimenez.com/assets/img/og-image.jpg"
+    />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ND61D18MSX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ND61D18MSX', {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logoabj.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/img/logoabj.svg"
+    />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alberto Báez Jiménez",
+        "jobTitle": "Director de Proyectos",
+        "description": "Profesionista con más de cuatro años liderando proyectos estratégicos y optimizando operaciones. Especializado en análisis de datos, mejora de eficiencia operativa y toma de decisiones basada en información.",
+        "url": "https://baezjimenez.com",
+        "email": "alberto@dataztlan.com",
+        "sameAs": ["https://linkedin.com/in/alberto-baez-jimenez"],
+        "knowsAbout": [
+          "Análisis de Datos",
+          "Optimización de Operaciones",
+          "Inteligencia Artificial",
+          "Gestión de Proyectos",
+          "Justicia Restaurativa"
+        ],
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "ITAM"
+        }
+      }
+    </script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lottie animations -->
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Particles background (canvas) -->
+    <canvas id="particles-bg" aria-hidden="true"></canvas>
+
+    <!-- Skip navigation para accesibilidad -->
+    <a href="#contenido" class="skip-link">
+      <span data-lang="es">Saltar al contenido principal</span>
+      <span data-lang="en">Skip to main content</span>
+    </a>
+
     <header class="header">
-      <h1 class="header__title">Nombre del Sistema o Aplicación</h1>
-      <nav class="header__nav" aria-label="Navegación principal">
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="#inicio">Inicio</a>
-          </li>
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="#contenido">Contenido</a>
-          </li>
-        </ul>
-      </nav>
+      <a href="/" class="header__logo-link">
+        <img
+          src="assets/img/logoabj.svg"
+          alt="ABJ Logo"
+          class="header__logo header__logo--light"
+          width="40"
+          height="40"
+        />
+        <img
+          src="assets/img/logoabjo.svg"
+          alt="ABJ Logo"
+          class="header__logo header__logo--dark"
+          width="40"
+          height="40"
+        />
+        <h1 class="header__title">Alberto Báez Jiménez</h1>
+      </a>
+
+      <div class="header__actions">
+        <nav class="header__nav" aria-label="Navegación principal">
+          <button
+            class="header__nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+            aria-label="Abrir menú de navegación"
+          >
+            <span class="header__nav-toggle-icon"></span>
+            <span class="header__nav-toggle-text">Menú</span>
+          </button>
+
+          <ul class="header__nav-list" id="menu-principal">
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="#inicio">
+                <span data-lang="es">Inicio</span>
+                <span data-lang="en">Home</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="#proyectos">
+                <span data-lang="es">Proyectos</span>
+                <span data-lang="en">Projects</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="#trayectoria">
+                <span data-lang="es">Trayectoria</span>
+                <span data-lang="en">Journey</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="#intereses">
+                <span data-lang="es">Intereses</span>
+                <span data-lang="en">Interests</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="#contacto">
+                <span data-lang="es">Contacto</span>
+                <span data-lang="en">Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          class="lang-toggle"
+          type="button"
+          data-lang-toggle
+          aria-pressed="false"
+          aria-label="Cambiar idioma"
+        >
+          <span class="lang-toggle__text">ES</span>
+        </button>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-pressed="false"
+          aria-label="Cambiar tema de color"
+        >
+          <svg
+            class="theme-toggle__icon theme-toggle__icon--moon"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            />
+          </svg>
+          <svg
+            class="theme-toggle__icon theme-toggle__icon--sun"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <button
+          class="contrast-toggle"
+          type="button"
+          data-contrast-toggle
+          aria-pressed="false"
+          title="Alternar modo de alto contraste"
+        >
+          <svg
+            class="contrast-toggle__icon"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2 A10 10 0 0 1 12 22 Z" fill="currentColor" />
+          </svg>
+          <span class="contrast-toggle__label">
+            <span data-lang="es">A+</span>
+            <span data-lang="en">A+</span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <main id="contenido" class="main-content">
-      <article class="hero">
-        <header class="hero__header">
-          <h2 class="hero__title">Título del Artículo o Sección Principal</h2>
-        </header>
-        <p class="hero__description">
-          Este bloque representa contenido independiente y autónomo que tiene
-          sentido por sí mismo.
-        </p>
-
+      <section class="profile-card fade-in-up" id="inicio">
         <img
-          class="hero__image"
-          src="ruta-imagen.jpg"
-          alt="Diagrama de flujo mostrando la interacción entre cliente y servidor web"
+          class="profile-card__image"
+          src="assets/img/portada.svg"
+          alt="Fotografía profesional de Alberto Báez Jiménez"
+          width="300"
+          height="200"
+          loading="eager"
         />
+        <div class="profile-card__content">
+          <h2 class="profile-card__name">Alberto Báez Jiménez</h2>
+          <p class="profile-card__title">
+            <span id="typing-text"></span>
+            <span class="typing-cursor"></span>
+          </p>
+          <p class="profile-card__summary" data-lang="es">
+            Profesionista con más de cuatro años liderando proyectos
+            estratégicos y optimizando operaciones. Especializado en análisis de
+            datos, mejora de eficiencia operativa y toma de decisiones basada en
+            información. Combino metodologías de comportamiento organizacional
+            con implementación de nuevas tecnologías para entregar resultados
+            medibles de impacto real.
+          </p>
+          <p class="profile-card__summary" data-lang="en">
+            Professional with over four years leading strategic projects and
+            optimizing operations. Specialized in data analysis, operational
+            efficiency improvement, and data-driven decision making. I combine
+            organizational behavior methodologies with new technology
+            implementation to deliver measurable results with real impact.
+          </p>
+          <div class="profile-card__contact">
+            <p class="profile-card__email">
+              <strong>Email:</strong> alberto@dataztlan.com
+            </p>
+            <p class="profile-card__location">
+              <strong data-lang="es">Ubicación:</strong>
+              <strong data-lang="en">Location:</strong>
+              <span data-lang="es"
+                >UTC-6 | Inglés (fluido) / Español (nativo)</span
+              >
+              <span data-lang="en"
+                >UTC-6 | English (fluent) / Spanish (native)</span
+              >
+            </p>
+            <p class="profile-card__linkedin">
+              <strong>LinkedIn:</strong>
+              <a
+                href="https://linkedin.com/in/alberto-baez-jimenez"
+                target="_blank"
+                rel="noreferrer"
+                >alberto-baez-jimenez</a
+              >
+            </p>
+            <p class="profile-card__linkedin">
+              <strong>Instagram:</strong>
+              <a
+                href="https://www.instagram.com/alberto.baezz.2042/"
+                target="_blank"
+                rel="noreferrer"
+                >@alberto.baezz.2042</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <button
-          class="hero__button hero__button--primary"
-          aria-label="Cerrar notificación de artículo"
-        >
-          X
-        </button>
-      </article>
+      <section class="projects" id="proyectos" aria-labelledby="projects-title">
+        <div class="container">
+          <header class="projects__header fade-in-up">
+            <h2 id="projects-title" class="projects__title">
+              <span data-lang="es">Proyectos Destacados</span>
+              <span data-lang="en">Featured Projects</span>
+            </h2>
+            <p class="projects__lead">
+              <span data-lang="es"
+                >Una selección de proyectos e investigaciones relevantes.</span
+              >
+              <span data-lang="en"
+                >A selection of relevant projects and research.</span
+              >
+            </p>
+          </header>
 
-      <aside
-        class="sidebar"
-        aria-label="Barra lateral con enlaces de referencia"
-      >
-        <h3 class="sidebar__title">Información Relacionada</h3>
-        <p class="sidebar__text">
-          Contenido periférico o complementario al artículo principal.
-        </p>
-      </aside>
+          <!-- Live region para anunciar resultados de filtrado -->
+          <div
+            id="filter-status"
+            class="sr-only"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
+
+          <!-- Contador de resultados visible -->
+          <div class="projects__count" id="projects-count" aria-live="polite">
+            <span data-lang="es">Mostrando <strong>14</strong> proyectos</span>
+            <span data-lang="en">Showing <strong>14</strong> projects</span>
+          </div>
+
+          <div
+            class="projects__filters"
+            role="toolbar"
+            aria-label="Filtros de proyectos"
+          >
+            <button class="filter is-active" type="button" data-filter="all">
+              <span data-lang="es">Todos</span>
+              <span data-lang="en">All</span>
+            </button>
+            <button class="filter" type="button" data-filter="startup">
+              <span data-lang="es">Startup</span>
+              <span data-lang="en">Startup</span>
+            </button>
+            <button class="filter" type="button" data-filter="research">
+              <span data-lang="es">Investigación</span>
+              <span data-lang="en">Research</span>
+            </button>
+            <button class="filter" type="button" data-filter="management">
+              <span data-lang="es">Gestión</span>
+              <span data-lang="en">Management</span>
+            </button>
+            <button class="filter" type="button" data-filter="publication">
+              <span data-lang="es">Publicación</span>
+              <span data-lang="en">Publication</span>
+            </button>
+            <button class="filter" type="button" data-filter="consulting">
+              <span data-lang="es">Consultoría</span>
+              <span data-lang="en">Consulting</span>
+            </button>
+            <button class="filter" type="button" data-filter="ponencia">
+              <span data-lang="es">Ponencias</span>
+              <span data-lang="en">Talks</span>
+            </button>
+          </div>
+
+          <!-- Empty state cuando no hay resultados -->
+          <div class="projects__empty" id="empty-state" hidden>
+            <svg
+              class="projects__empty-icon"
+              width="80"
+              height="80"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4" />
+              <path d="M12 16h.01" />
+            </svg>
+            <h3 class="projects__empty-title">
+              <span data-lang="es">No se encontraron proyectos</span>
+              <span data-lang="en">No projects found</span>
+            </h3>
+            <p class="projects__empty-text">
+              <span data-lang="es"
+                >Intenta con otro filtro para ver más proyectos</span
+              >
+              <span data-lang="en"
+                >Try another filter to see more projects</span
+              >
+            </p>
+          </div>
+
+          <div class="projects__grid" data-project-grid>
+
+            <!-- 0. Datatón -->
+            <article class="project-card fade-in-up" data-tech="research" data-project-id="dataton">
+              <a class="project-card__media" href="#" target="_blank" rel="noreferrer">
+                <img
+                  class="project-card__img"
+                  src="assets/img/dataton.svg"
+                  alt="Datatón ITAM-INEGI-ANTAD 2024"
+                  loading="lazy" decoding="async" width="800" height="600"
+                />
+              </a>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="#" target="_blank" rel="noreferrer">
+                    Datatón ITAM-INEGI-ANTAD 2024
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Primer lugar. Análisis de transformación de e-commerce para tiendas departamentales, combinando optimización logística (IA y enfoques cuánticos) con integración de ventas por WhatsApp.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  First place. E-commerce transformation analysis for department stores, combining logistics optimization (AI and quantum approaches) with WhatsApp sales integration.
+                </p>
+                <ul class="project-card__tags" aria-label="Tecnologías">
+                  <li class="tag" data-lang="es">Análisis de Datos</li>
+                  <li class="tag" data-lang="en">Data Analysis</li>
+                  <li class="tag">IA / AI</li>
+                  <li class="tag" data-lang="es">Optimización</li>
+                  <li class="tag" data-lang="en">Optimization</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://www.canva.com/design/DAGVP0Y35ZI/G9Q5ar3d_P2_nhgh9XjIwg/view?utm_content=DAGVP0Y35ZI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5633cf3306" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver Presentación</span>
+                    <span data-lang="en">View Presentation</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 1. MireIA -->
+            <article class="project-card fade-in-up" data-tech="startup" data-project-id="mireia">
+              <a class="project-card__media" href="https://mireia.io/" target="_blank" rel="noreferrer">
+                <img
+                  class="project-card__img"
+                  src="assets/img/MireIA.svg"
+                  alt="MireIA - Plataforma de reclutamiento con IA"
+                  loading="lazy" decoding="async" width="800" height="600"
+                />
+              </a>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="https://mireia.io/" target="_blank" rel="noreferrer">
+                    MireIA
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Startup de reclutamiento potenciado por inteligencia artificial. Seleccionado para START Incubator 2025 y participante en ROASTING SESSION. Automatiza y optimiza procesos de selección de talento.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  AI-powered recruitment startup. Selected for START Incubator 2025 and participant in ROASTING SESSION. Automates and optimizes talent selection processes.
+                </p>
+                <ul class="project-card__tags" aria-label="Tecnologías">
+                  <li class="tag">IA / AI</li>
+                  <li class="tag" data-lang="es">Startup</li>
+                  <li class="tag" data-lang="en">Startup</li>
+                  <li class="tag" data-lang="es">Reclutamiento</li>
+                  <li class="tag" data-lang="en">Recruitment</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://mireia.io/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver Sitio</span>
+                    <span data-lang="en">Visit Site</span>
+                  </a>
+                  <a class="btn btn--ghost" href="https://www.instagram.com/mireia.io/" target="_blank" rel="noreferrer">Instagram</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. GLEX 2025 - Investigación Espacial -->
+            <article class="project-card fade-in-up" data-tech="research" data-project-id="glex">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/glex.svg"      alt="GLEX 2025 - ITAM en Nueva Delhi" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/glex%201.svg"  alt="GLEX 2025 - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/glex%202.svg"  alt="GLEX 2025 - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/glex%203.svg"  alt="GLEX 2025 - foto 4" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/glex%204.svg"  alt="GLEX 2025 - foto 5" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="https://mundoitam.com/2025/06/23/itam-conquista-espacio-estudiantes-destacan-glex-2025-india/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">GLEX 2025 — Investigación Espacial</span>
+                    <span data-lang="en">GLEX 2025 — Space Research</span>
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  4 papers en el GLEX 2025 (Nueva Delhi, IAF). Autor principal: "Theoretical Models for Peaceful Space Coordination: A Restorative Justice Approach" (Derecho Espacial y Resolución de Conflictos). Coautor en: Liquid Neural Networks para estimación satelital, LuzIA en operaciones de espacio profundo y CubeSat estructural con madera.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  4 papers at GLEX 2025 (New Delhi, IAF). Main author: "Theoretical Models for Peaceful Space Coordination: A Restorative Justice Approach" (Space Law & Conflict Resolution). Co-author on: Liquid Neural Networks for satellite estimation, LuzIA in deep-space operations, and wood-based CubeSat design.
+                </p>
+                <ul class="project-card__tags" aria-label="Áreas">
+                  <li class="tag" data-lang="es">Investigación Espacial</li>
+                  <li class="tag" data-lang="en">Space Research</li>
+                  <li class="tag">GLEX 2025</li>
+                  <li class="tag">4 Papers</li>
+                  <li class="tag">Nueva Delhi</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://dl.iafastro.directory/event/GLEX-2025/paper/92922/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Leer Paper</span>
+                    <span data-lang="en">Read Paper</span>
+                  </a>
+                  <a class="btn btn--ghost" href="https://mundoitam.com/2025/06/23/itam-conquista-espacio-estudiantes-destacan-glex-2025-india/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Nota de Prensa</span>
+                    <span data-lang="en">Press Release</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Teatro ITAM -->
+            <article class="project-card fade-in-up" data-tech="management" data-project-id="teatro">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/teatro.svg"  alt="Teatro ITAM" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/teatro1.svg" alt="Teatro ITAM - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/teatro2.svg" alt="Teatro ITAM - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/teatro3.svg" alt="Teatro ITAM - foto 4" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/teatro4.svg" alt="Teatro ITAM - foto 5" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/teatro5.svg" alt="Teatro ITAM - foto 6" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/elena.svg"   alt="Teatro ITAM - Elena Poniatowska" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="https://youtu.be/635nQf_JnHk" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Teatro ITAM — Gestión Cultural</span>
+                    <span data-lang="en">Teatro ITAM — Cultural Management</span>
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Presidente y Tesorero de Teatro ITAM. Producción del 1er y 2do Festival de Teatro con 4 y 7 compañías invitadas. Organización de evento con Elena Poniatowska, gestión de crisis durante pandemia, obra original "Roomies" con perspectiva de género. Más de 15 puestas en escena como actor.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  President and Treasurer of Teatro ITAM. Production of the 1st and 2nd Theater Festivals with 4 and 7 guest companies. Organization of an event with Elena Poniatowska, pandemic crisis management, original play "Roomies" with gender perspective. Over 15 stage performances as actor.
+                </p>
+                <ul class="project-card__tags" aria-label="Habilidades">
+                  <li class="tag" data-lang="es">Gestión Cultural</li>
+                  <li class="tag" data-lang="en">Cultural Management</li>
+                  <li class="tag" data-lang="es">Producción</li>
+                  <li class="tag" data-lang="en">Production</li>
+                  <li class="tag" data-lang="es">Liderazgo</li>
+                  <li class="tag" data-lang="en">Leadership</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://youtu.be/635nQf_JnHk" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver Festival</span>
+                    <span data-lang="en">Watch Festival</span>
+                  </a>
+                  <a class="btn btn--ghost" href="https://mundoitam.com/2023/06/27/elena-poniatowska-abarrota-el-auditorio-en-el-itam/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Nota Poniatowska</span>
+                    <span data-lang="en">Poniatowska Event</span>
+                  </a>
+                  <a class="btn btn--ghost" href="https://www.instagram.com/teatroitam/" target="_blank" rel="noreferrer">Instagram</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Secuelas: El ocaso de la verdad -->
+            <article class="project-card fade-in-up" data-tech="publication" data-project-id="secuelas">
+              <a class="project-card__media" href="secuelas.html">
+                <img
+                  class="project-card__img"
+                  src="assets/img/secuelas.svg"
+                  alt="Secuelas: El ocaso de la verdad — Novela de fantasía política"
+                  loading="lazy" decoding="async" width="800" height="600"
+                />
+              </a>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="secuelas.html">
+                    Secuelas: El ocaso de la verdad
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Novela de fantasía política (lanzamiento 2026). Explora el conflicto entre estabilidad e ideología a través de facciones y sistemas de poder. Personajes diseñados mediante tipologías MBTI para garantizar coherencia psicológica. Temas: traición, legitimidad del poder y el costo humano de los absolutismos.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  Political fantasy novel (2026 release). Explores the conflict between stability and ideology through factions and power systems. Characters designed using MBTI typologies for psychological coherence. Themes: betrayal, legitimacy of power, and the human cost of ideological absolutism.
+                </p>
+                <ul class="project-card__tags" aria-label="Géneros">
+                  <li class="tag" data-lang="es">Fantasía Política</li>
+                  <li class="tag" data-lang="en">Political Fantasy</li>
+                  <li class="tag" data-lang="es">Escritura Creativa</li>
+                  <li class="tag" data-lang="en">Creative Writing</li>
+                  <li class="tag">2026</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="secuelas.html">
+                    <span data-lang="es">Leer Capítulos</span>
+                    <span data-lang="en">Read Chapters</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Dataztlan -->
+            <article class="project-card fade-in-up" data-tech="management consulting" data-project-id="dataztlan">
+              <a class="project-card__media" href="https://dataztlan.com/" target="_blank" rel="noreferrer">
+                <img
+                  class="project-card__img"
+                  src="assets/img/dataztlan.svg"
+                  alt="Dataztlan - Dirección de Proyecto"
+                  loading="lazy" decoding="async" width="800" height="600"
+                />
+              </a>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="https://dataztlan.com/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Dataztlan — Director de Proyecto</span>
+                    <span data-lang="en">Dataztlan — Project Director</span>
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Dirección estratégica de proyectos de datos y tecnología desde diciembre 2023. Liderazgo de equipos multidisciplinarios, coordinación de entregables y desarrollo de soluciones de análisis de datos para clientes corporativos.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  Strategic direction of data and technology projects since December 2023. Leadership of multidisciplinary teams, deliverable coordination, and development of data analysis solutions for corporate clients.
+                </p>
+                <ul class="project-card__tags" aria-label="Habilidades">
+                  <li class="tag" data-lang="es">Dirección de Proyecto</li>
+                  <li class="tag" data-lang="en">Project Direction</li>
+                  <li class="tag" data-lang="es">Análisis de Datos</li>
+                  <li class="tag" data-lang="en">Data Analysis</li>
+                  <li class="tag" data-lang="es">Estrategia</li>
+                  <li class="tag" data-lang="en">Strategy</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://dataztlan.com/" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver Empresa</span>
+                    <span data-lang="en">View Company</span>
+                  </a>
+                  <a class="btn btn--ghost" href="https://www.instagram.com/dataztlan/" target="_blank" rel="noreferrer">Instagram</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. Centro de Solución de Conflictos ITAM -->
+            <article class="project-card fade-in-up" data-tech="consulting" data-project-id="csc">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/csc.svg"  alt="CSC ITAM" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/csc2.svg" alt="CSC ITAM - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/csc3.svg" alt="CSC ITAM - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/csc4.svg" alt="CSC ITAM - foto 4" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">CSC ITAM — Cofundador</span>
+                  <span data-lang="en">CSC ITAM — Co-Founder</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Cofundador del Centro de Solución de Conflictos del ITAM (2023–2024). Diseño de procesos internos, auditoría de comportamiento organizacional y consultoría en mediación de conflictos.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  Co-founder of the ITAM Conflict Resolution Center (2023–2024). Internal process design, organizational behavior auditing, and conflict mediation consulting.
+                </p>
+                <ul class="project-card__tags" aria-label="Áreas">
+                  <li class="tag" data-lang="es">Consultoría</li>
+                  <li class="tag" data-lang="en">Consulting</li>
+                  <li class="tag" data-lang="es">Mediación</li>
+                  <li class="tag" data-lang="en">Mediation</li>
+                  <li class="tag" data-lang="es">Cofundador</li>
+                  <li class="tag" data-lang="en">Co-Founder</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://www.talentocolaborativo.com/nosotros.html" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver Talento Colaborativo</span>
+                    <span data-lang="en">Visit Talento Colaborativo</span>
+                  </a>
+                  <a class="btn btn--ghost" href="https://www.instagram.com/talento.colaborativo/" target="_blank" rel="noreferrer">Instagram</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. Revista Cámara de Diputados -->
+            <article class="project-card fade-in-up" data-tech="publication" data-project-id="revista">
+              <div class="project-card__media project-card__media--nolink">
+                <img
+                  class="project-card__img"
+                  src="assets/img/periodismo.svg"
+                  alt="Análisis de Política Pública y Económica — Revista Cámara de Diputados"
+                  loading="lazy" decoding="async" width="800" height="600"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">Análisis de Política Pública y Económica</span>
+                  <span data-lang="en">Public and Economic Policy Analysis</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">
+                  Periodista legislativo e investigador en la Revista de la Cámara de Diputados (2022–2024). Tres artículos publicados sobre política fiscal, fintech y política climática juvenil.
+                </p>
+                <p class="project-card__desc" data-lang="en">
+                  Legislative journalist and researcher at the Chamber of Deputies Magazine (2022–2024). Three published articles on fiscal policy, fintech, and youth climate policy.
+                </p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Política Fiscal</li>
+                  <li class="tag" data-lang="en">Fiscal Policy</li>
+                  <li class="tag">Fintech</li>
+                  <li class="tag" data-lang="es">Política Climática</li>
+                  <li class="tag" data-lang="en">Climate Policy</li>
+                </ul>
+                <div class="project-card__actions">
+                  <button class="btn btn--primary" type="button" data-open-modal="revista">
+                    <span data-lang="es">Ver Publicaciones</span>
+                    <span data-lang="en">View Publications</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. CANACINTRA Torreón -->
+            <article class="project-card fade-in-up" data-tech="ponencia" data-project-id="canacintra">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/canac.svg"  alt="CANACINTRA Torreón" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/canac1.svg" alt="CANACINTRA Torreón - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/canac2.svg" alt="CANACINTRA Torreón - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="https://es.linkedin.com/posts/canacintratrc_industriainteligente-transformaci%C3%B3ndigital-activity-7387273001043447809-va1L" target="_blank" rel="noreferrer">
+                    <span data-lang="es">CANACINTRA — Ponente en IA Empresarial</span>
+                    <span data-lang="en">CANACINTRA — AI in Business Speaker</span>
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Conferencia "Aplicaciones de inteligencia artificial en un entorno empresarial dinámico" ante la CANACINTRA Torreón. 23 de octubre 2025.</p>
+                <p class="project-card__desc" data-lang="en">Conference "Applications of artificial intelligence in a dynamic business environment" at CANACINTRA Torreón. October 23, 2025.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag">IA / AI</li>
+                  <li class="tag" data-lang="es">Conferencia</li>
+                  <li class="tag" data-lang="en">Conference</li>
+                  <li class="tag">CANACINTRA</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://es.linkedin.com/posts/canacintratrc_industriainteligente-transformaci%C3%B3ndigital-activity-7387273001043447809-va1L" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver en LinkedIn</span>
+                    <span data-lang="en">View on LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 9. Capacitación Comportamiento Organizacional -->
+            <article class="project-card fade-in-up" data-tech="consulting" data-project-id="caporg">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/sat.svg"  alt="Capacitación organizacional" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/sat1.svg" alt="Capacitación organizacional - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">Capacitación Organizacional — Institución Pública</span>
+                  <span data-lang="en">Organizational Training — Public Institution</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Capacitación y círculos de diálogo de comportamiento organizacional dirigidos a una institución pública. Facilitación de procesos de cultura, clima laboral y comunicación interna.</p>
+                <p class="project-card__desc" data-lang="en">Organizational behavior training and dialogue circles directed at a public institution. Facilitation of culture, work environment, and internal communication processes.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Comportamiento Org.</li>
+                  <li class="tag" data-lang="en">Org. Behavior</li>
+                  <li class="tag" data-lang="es">Sector Público</li>
+                  <li class="tag" data-lang="en">Public Sector</li>
+                  <li class="tag" data-lang="es">Capacitación</li>
+                  <li class="tag" data-lang="en">Training</li>
+                </ul>
+                <div class="project-card__actions">
+                  <button class="btn btn--ghost" type="button" data-open-modal="caporg">
+                    <span data-lang="es">Ver Detalles</span>
+                    <span data-lang="en">View Details</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 10. CEMEX Hackathon -->
+            <article class="project-card fade-in-up" data-tech="research" data-project-id="cemex">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/cemex.svg"  alt="CEMEX Hackathon" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/cemex1.svg" alt="CEMEX Hackathon - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">CEMEX Hackathon — Vivienda Sostenible</span>
+                  <span data-lang="en">CEMEX Hackathon — Sustainable Housing</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Hackathon en Monterrey (octubre 2024). Desarrollamos un algoritmo de geolocalización para identificar las mejores ubicaciones de vivienda sostenible, combinando análisis espacial y criterios de sustentabilidad.</p>
+                <p class="project-card__desc" data-lang="en">Hackathon in Monterrey (October 2024). We developed a geolocation algorithm to identify optimal sustainable housing locations, combining spatial analysis and sustainability criteria.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Geolocalización</li>
+                  <li class="tag" data-lang="en">Geolocation</li>
+                  <li class="tag" data-lang="es">Algoritmo</li>
+                  <li class="tag" data-lang="en">Algorithm</li>
+                  <li class="tag" data-lang="es">Sustentabilidad</li>
+                  <li class="tag" data-lang="en">Sustainability</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://www.canva.com/design/DAGWtDIyvcg/Eb7Rwj5ecOB1UoMqEwV1kw/view?utm_content=DAGWtDIyvcg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h04903e654e" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Ver Presentación</span>
+                    <span data-lang="en">View Presentation</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 11. Género - ITAM -->
+            <article class="project-card fade-in-up" data-tech="management" data-project-id="genero">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/genero.svg"  alt="Género, Diversidad e Inclusión — ITAM" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/genero1.svg" alt="Género ITAM - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/genero2.svg" alt="Género ITAM - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">Género, Diversidad e Inclusión — ITAM</span>
+                  <span data-lang="en">Gender, Diversity & Inclusion — ITAM</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Participación en eventos de promoción, divulgación y capacitación en materia de género, diversidad e inclusión en el ITAM. Generación de espacios de diálogo y formación en perspectiva de género.</p>
+                <p class="project-card__desc" data-lang="en">Participation in events promoting, disseminating, and training on gender, diversity, and inclusion at ITAM. Creation of dialogue spaces and gender perspective training.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Género</li>
+                  <li class="tag" data-lang="en">Gender</li>
+                  <li class="tag" data-lang="es">Diversidad</li>
+                  <li class="tag" data-lang="en">Diversity</li>
+                  <li class="tag">ITAM</li>
+                </ul>
+                <div class="project-card__actions">
+                  <button class="btn btn--ghost" type="button" data-open-modal="genero">
+                    <span data-lang="es">Ver Detalles</span>
+                    <span data-lang="en">View Details</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 12. Foro Conecta México - Senado -->
+            <article class="project-card fade-in-up" data-tech="ponencia" data-project-id="foro">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/foro.svg"  alt="Foro Conecta México - Senado" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/foro1.svg" alt="Foro Conecta México - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/foro2.svg" alt="Foro Conecta México - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">Foro Conecta México — Senado</span>
+                  <span data-lang="en">Foro Conecta México — Senate</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Panelista en el "Foro Conecta México" organizado por el Senado de la República. Perspectivas económicas y de inteligencia artificial ante legisladores y actores del sector público.</p>
+                <p class="project-card__desc" data-lang="en">Panelist at "Foro Conecta México" organized by the Senate of the Republic. Economic and artificial intelligence perspectives shared with legislators and public sector actors.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Panelista</li>
+                  <li class="tag" data-lang="en">Panelist</li>
+                  <li class="tag">IA / AI</li>
+                  <li class="tag" data-lang="es">Economía</li>
+                  <li class="tag" data-lang="en">Economics</li>
+                  <li class="tag" data-lang="es">Senado</li>
+                  <li class="tag" data-lang="en">Senate</li>
+                </ul>
+                <div class="project-card__actions">
+                  <button class="btn btn--ghost" type="button" data-open-modal="foro">
+                    <span data-lang="es">Ver Detalles</span>
+                    <span data-lang="en">View Details</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 13. Radio - Análisis Israel-Palestina -->
+            <article class="project-card fade-in-up" data-tech="ponencia" data-project-id="radio">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/radio.svg"        alt="Radio - Análisis Israel-Palestina" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/radio%20(2).svg" alt="Radio - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <a class="project-card__title-link" href="https://youtu.be/EvcFFdUkJYs?si=afzISwvMvB5Zn3dg" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Radio — Análisis Conflicto Israel-Palestina</span>
+                    <span data-lang="en">Radio — Israel-Palestine Conflict Analysis</span>
+                  </a>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Participación como panelista en un programa de radio dedicado al análisis del conflicto Israel-Palestina. Perspectiva geopolítica, económica y de resolución de conflictos.</p>
+                <p class="project-card__desc" data-lang="en">Participation as a panelist in a radio program dedicated to analyzing the Israel-Palestine conflict. Geopolitical, economic, and conflict resolution perspective.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Geopolítica</li>
+                  <li class="tag" data-lang="en">Geopolitics</li>
+                  <li class="tag" data-lang="es">Análisis</li>
+                  <li class="tag" data-lang="en">Analysis</li>
+                  <li class="tag" data-lang="es">Medios</li>
+                  <li class="tag" data-lang="en">Media</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a class="btn btn--primary" href="https://youtu.be/EvcFFdUkJYs?si=afzISwvMvB5Zn3dg" target="_blank" rel="noreferrer">
+                    <span data-lang="es">Escuchar en YouTube</span>
+                    <span data-lang="en">Listen on YouTube</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 14. Ecopreneurs - UNAM Watson Institute -->
+            <article class="project-card fade-in-up" data-tech="startup research" data-project-id="ecopr">
+              <div class="project-card__media project-card__media--carousel">
+                <img class="carousel__slide project-card__img is-active" src="assets/img/ecopr.svg"        alt="Ecopreneurs UNAM Watson Institute — Primer Lugar" loading="lazy" decoding="async" width="800" height="600" />
+                <img class="carousel__slide project-card__img" src="assets/img/ecopr%20(2).svg" alt="Ecopreneurs - foto 2" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <img class="carousel__slide project-card__img" src="assets/img/ecopr%20(3).svg" alt="Ecopreneurs - foto 3" loading="lazy" decoding="async" width="800" height="600" aria-hidden="true" />
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+                <div class="carousel__dots" aria-hidden="true">
+                  <button class="carousel__dot is-active" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                  <button class="carousel__dot" type="button"></button>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">
+                  <span data-lang="es">Ecopreneurs — UNAM · Watson Institute</span>
+                  <span data-lang="en">Ecopreneurs — UNAM · Watson Institute</span>
+                </h3>
+                <p class="project-card__desc" data-lang="es">Primer lugar en Ecopreneurs (nov. 2025), rally-hackathon de 2 h organizado por la UNAM y el Watson Institute of Entrepreneurship. Modelo de economía circular en moda: biomateriales y ropa reciclada convertidos en recubrimiento térmico para viviendas, con ventaja de costo de oportunidad frente al relleno sanitario.</p>
+                <p class="project-card__desc" data-lang="en">First place at Ecopreneurs (Nov. 2025), a 2-hour rally-hackathon by UNAM and the Watson Institute of Entrepreneurship. Circular economy model in fashion: biomaterials and recycled clothing converted into thermal housing cladding, with opportunity-cost advantage over landfill disposal.</p>
+                <ul class="project-card__tags" aria-label="Temas">
+                  <li class="tag" data-lang="es">Economía Circular</li>
+                  <li class="tag" data-lang="en">Circular Economy</li>
+                  <li class="tag" data-lang="es">Sustentabilidad</li>
+                  <li class="tag" data-lang="en">Sustainability</li>
+                  <li class="tag" data-lang="es">Biomateriales</li>
+                  <li class="tag" data-lang="en">Biomaterials</li>
+                  <li class="tag" data-lang="es">Primer Lugar</li>
+                  <li class="tag" data-lang="en">First Place</li>
+                </ul>
+                <div class="project-card__actions">
+                  <button class="btn btn--ghost" type="button" data-open-modal="ecopr">
+                    <span data-lang="es">Ver Detalles</span>
+                    <span data-lang="en">View Details</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- Sección Trayectoria -->
+    <section class="timeline-section" id="trayectoria" aria-labelledby="timeline-title">
+      <div class="container">
+        <header class="timeline-section__header fade-in-up">
+          <h2 id="timeline-title" class="timeline-section__title">
+            <span data-lang="es">Trayectoria</span>
+            <span data-lang="en">Journey</span>
+          </h2>
+          <p class="timeline-section__lead">
+            <span data-lang="es">Formación, experiencia profesional, certificaciones y publicaciones.</span>
+            <span data-lang="en">Education, professional experience, certifications and publications.</span>
+          </p>
+        </header>
+
+        <!-- Filtros de trayectoria -->
+        <div class="timeline-filters" role="toolbar" aria-label="Filtros de trayectoria">
+          <button class="filter is-active" type="button" data-timeline-filter="all">
+            <span data-lang="es">Todo</span>
+            <span data-lang="en">All</span>
+          </button>
+          <button class="filter" type="button" data-timeline-filter="work">
+            <span data-lang="es">Trabajo</span>
+            <span data-lang="en">Work</span>
+          </button>
+          <button class="filter" type="button" data-timeline-filter="academic">
+            <span data-lang="es">Académico</span>
+            <span data-lang="en">Academic</span>
+          </button>
+          <button class="filter" type="button" data-timeline-filter="cert">
+            <span data-lang="es">Certificaciones</span>
+            <span data-lang="en">Certifications</span>
+          </button>
+          <button class="filter" type="button" data-timeline-filter="publication">
+            <span data-lang="es">Publicaciones</span>
+            <span data-lang="en">Publications</span>
+          </button>
+        </div>
+
+        <div class="timeline" data-timeline>
+
+          <!-- 2026 - Próximamente -->
+          <div class="timeline__item fade-in-up" data-timeline-type="cert">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--cert">
+                <!-- Star / Award -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/pmi.svg" alt="PMI" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2026</span>
+              <span class="timeline__badge timeline__badge--cert">
+                <span data-lang="es">Certificación</span>
+                <span data-lang="en">Certification</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Membresía PMI</span>
+                <span data-lang="en">PMI Membership</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Project Management Institute — Membresía activa 2026.</p>
+              <p class="timeline__desc" data-lang="en">Project Management Institute — Active membership 2026.</p>
+              <span class="timeline__tag">PMI</span>
+              <span class="timeline__tag">
+                <span data-lang="es">Próximamente</span>
+                <span data-lang="en">Upcoming</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- 2025 - GLEX -->
+          <div class="timeline__item fade-in-up" data-timeline-type="academic">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--academic">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.5-2 4.5-.5 5.5s4-.5 5.5-2l6-6-5-5-6 6z"/><path d="M12 15l-3-3 8-8 3 3-8 8z"/><path d="M20 4L12 12"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/glex.svg" alt="GLEX 2025" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2025</span>
+              <span class="timeline__badge timeline__badge--academic">
+                <span data-lang="es">Investigación Espacial</span>
+                <span data-lang="en">Space Research</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">GLEX 2025 — 4 Papers, Nueva Delhi</span>
+                <span data-lang="en">GLEX 2025 — 4 Papers, New Delhi</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Global Space Exploration Conference (IAF), India. Autor principal en Derecho Espacial y Justicia Restaurativa; coautor en IA satelital, HCI en espacio profundo e ingeniería aeroespacial.</p>
+              <p class="timeline__desc" data-lang="en">Global Space Exploration Conference (IAF), India. Main author on Space Law & Restorative Justice; co-author on satellite AI, deep-space HCI, and aerospace engineering.</p>
+              <div class="timeline__links">
+                <a href="https://dl.iafastro.directory/event/GLEX-2025/paper/92922/" target="_blank" rel="noreferrer" class="timeline__link">
+                  <span data-lang="es">★ Peaceful Space Coordination — Restorative Justice →</span>
+                  <span data-lang="en">★ Peaceful Space Coordination — Restorative Justice →</span>
+                </a>
+                <a href="https://dl.iafastro.directory/event/GLEX-2025/paper/93893/" target="_blank" rel="noreferrer" class="timeline__link">
+                  <span data-lang="es">Adaptive Satellite State Estimation — Liquid Neural Networks →</span>
+                  <span data-lang="en">Adaptive Satellite State Estimation — Liquid Neural Networks →</span>
+                </a>
+                <a href="https://dl.iafastro.directory/event/GLEX-2025/paper/93164/" target="_blank" rel="noreferrer" class="timeline__link">LuzIA — Deep-Space Crew Productivity →</a>
+                <a href="https://dl.iafastro.directory/event/GLEX-2025/paper/93161/" target="_blank" rel="noreferrer" class="timeline__link">CubeSat — Wood &amp; Innovative Joining →</a>
+                <a href="https://mundoitam.com/2025/06/23/itam-conquista-espacio-estudiantes-destacan-glex-2025-india/" target="_blank" rel="noreferrer" class="timeline__link">
+                  <span data-lang="es">Nota de prensa →</span>
+                  <span data-lang="en">Press release →</span>
+                </a>
+              </div>
+              <span class="timeline__tag">GLEX 2025</span>
+              <span class="timeline__tag">Nueva Delhi</span>
+              <span class="timeline__tag">IAF</span>
+            </div>
+          </div>
+
+          <!-- 2025 - FAMEX -->
+          <div class="timeline__item fade-in-up" data-timeline-type="academic">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--academic">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.5-2 4.5-.5 5.5s4-.5 5.5-2l6-6-5-5-6 6z"/><path d="M12 15l-3-3 8-8 3 3-8 8z"/><path d="M20 4L12 12"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">2025</span>
+              <span class="timeline__badge timeline__badge--academic">
+                <span data-lang="es">Ponencia</span>
+                <span data-lang="en">Speaker</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">FAMEX 2025 — Expositor</span>
+                <span data-lang="en">FAMEX 2025 — Speaker</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Feria Aeroespacial México 2025. Presentación de proyectos del GLEX 2025 y de toberas de cohetes elaboradas mediante manufactura aditiva en carburo de silicio, desarrolladas originalmente para el IAC de Milán 2024.</p>
+              <p class="timeline__desc" data-lang="en">Feria Aeroespacial México 2025. Presentation of GLEX 2025 projects and rocket nozzles manufactured through additive manufacturing in silicon carbide, originally developed for IAC Milan 2024.</p>
+              <span class="timeline__tag">FAMEX 2025</span>
+              <span class="timeline__tag" data-lang="es">Manufactura Aditiva</span>
+              <span class="timeline__tag" data-lang="en">Additive Manufacturing</span>
+              <span class="timeline__tag" data-lang="es">Toberas de Cohete</span>
+              <span class="timeline__tag" data-lang="en">Rocket Nozzles</span>
+              <span class="timeline__tag">IAC Milán 2024</span>
+            </div>
+          </div>
+
+          <!-- 2025 - MireIA -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <!-- Briefcase -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/MireIA.svg" alt="MireIA" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2025</span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Startup</span>
+                <span data-lang="en">Startup</span>
+              </span>
+              <h3 class="timeline__title">MireIA — START Incubator 2025</h3>
+              <p class="timeline__desc" data-lang="es">Seleccionado para START Incubator 2025 y participante en ROASTING SESSION. Startup de reclutamiento potenciado por IA.</p>
+              <p class="timeline__desc" data-lang="en">Selected for START Incubator 2025 and participant in ROASTING SESSION. AI-powered recruitment startup.</p>
+              <a href="https://mireia.io/" target="_blank" rel="noreferrer" class="timeline__link">mireia.io →</a>
+              <span class="timeline__tag">IA / AI</span>
+              <span class="timeline__tag">Startup</span>
+            </div>
+          </div>
+
+          <!-- 2024 - Bootcamp Ciberseguridad -->
+          <div class="timeline__item fade-in-up" data-timeline-type="cert">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--cert">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">2024</span>
+              <span class="timeline__badge timeline__badge--cert">
+                <span data-lang="es">Certificación</span>
+                <span data-lang="en">Certification</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Bootcamp de Ciberseguridad</span>
+                <span data-lang="en">Cybersecurity Bootcamp</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Palo Alto Networks × ITAM. Formación intensiva en ciberseguridad empresarial.</p>
+              <p class="timeline__desc" data-lang="en">Palo Alto Networks × ITAM. Intensive training in enterprise cybersecurity.</p>
+              <a href="https://view.pok.tech/c/0420f422-222c-4812-91a4-a66d5210fb00" target="_blank" rel="noreferrer" class="timeline__link">
+                <span data-lang="es">Ver credencial →</span>
+                <span data-lang="en">View credential →</span>
+              </a>
+              <span class="timeline__tag">Palo Alto Networks</span>
+              <span class="timeline__tag">ITAM</span>
+            </div>
+          </div>
+
+          <!-- 2024 - Talento Colaborativo -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">2024 – <span data-lang="es">Presente</span><span data-lang="en">Present</span></span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Trabajo</span>
+                <span data-lang="en">Work</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Talento Colaborativo — Consultor</span>
+                <span data-lang="en">Talento Colaborativo — Consultant</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Consultoría en gestión de talento y cultura organizacional. Facilitación para 200+ empleados con reducción medible de rotación de personal.</p>
+              <p class="timeline__desc" data-lang="en">Consulting in talent management and organizational culture. Facilitation for 200+ employees with measurable reduction in staff turnover.</p>
+              <a href="https://www.talentocolaborativo.com/nosotros.html" target="_blank" rel="noreferrer" class="timeline__link">
+                <span data-lang="es">Ver empresa →</span>
+                <span data-lang="en">View company →</span>
+              </a>
+              <span class="timeline__tag">200+ empleados</span>
+            </div>
+          </div>
+
+          <!-- 2024 - Electa Capital -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">Abr – Ago 2024</span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Trabajo</span>
+                <span data-lang="en">Work</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Electa Capital — Analista de Negocios</span>
+                <span data-lang="en">Electa Capital — Business Analyst</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Due diligence operativa y compliance. Análisis financiero y evaluación de riesgos para operaciones de capital.</p>
+              <p class="timeline__desc" data-lang="en">Operational due diligence and compliance. Financial analysis and risk assessment for capital operations.</p>
+              <span class="timeline__tag">Due Diligence</span>
+              <span class="timeline__tag">Compliance</span>
+            </div>
+          </div>
+
+          <!-- 2023 - Dataztlan -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/dataztlan.svg" alt="Dataztlan" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2023 – <span data-lang="es">Presente</span><span data-lang="en">Present</span></span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Trabajo</span>
+                <span data-lang="en">Work</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Dataztlan — Director de Proyecto</span>
+                <span data-lang="en">Dataztlan — Project Director</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Dirección estratégica de proyectos de datos y tecnología. Liderazgo de equipos multidisciplinarios y desarrollo de soluciones de análisis para clientes corporativos.</p>
+              <p class="timeline__desc" data-lang="en">Strategic direction of data and technology projects. Multidisciplinary team leadership and analytics solution development for corporate clients.</p>
+              <a href="https://dataztlan.com/" target="_blank" rel="noreferrer" class="timeline__link">dataztlan.com →</a>
+              <span class="timeline__tag" data-lang="es">Análisis de Datos</span>
+              <span class="timeline__tag" data-lang="en">Data Analysis</span>
+            </div>
+          </div>
+
+          <!-- 2023 - CSC ITAM -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/csc.svg" alt="CSC ITAM" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2023 – 2024</span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Cofundador</span>
+                <span data-lang="en">Co-Founder</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">CSC ITAM — Centro de Solución de Conflictos</span>
+                <span data-lang="en">CSC ITAM — Conflict Resolution Center</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Cofundador y consultor. Diseño de procesos internos, auditoría de comportamiento organizacional y mediación de conflictos.</p>
+              <p class="timeline__desc" data-lang="en">Co-founder and consultant. Internal process design, organizational behavior auditing, and conflict mediation.</p>
+              <span class="timeline__tag" data-lang="es">Mediación</span>
+              <span class="timeline__tag" data-lang="en">Mediation</span>
+              <span class="timeline__tag">ITAM</span>
+            </div>
+          </div>
+
+          <!-- 2023 - Coloquio de Matemáticas -->
+          <div class="timeline__item fade-in-up" data-timeline-type="academic">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--academic">
+                <!-- Book -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">2023</span>
+              <span class="timeline__badge timeline__badge--academic">
+                <span data-lang="es">Ponencia</span>
+                <span data-lang="en">Talk</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Coloquio de Matemáticas ITAM</span>
+                <span data-lang="en">ITAM Mathematics Colloquium</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">"El arte de la racionalidad" — Ponencia académica publicada en el libro del Coloquio de Matemáticas ITAM (Pág. 58).</p>
+              <p class="timeline__desc" data-lang="en">"The Art of Rationality" — Academic talk published in the ITAM Mathematics Colloquium book (Pg. 58).</p>
+              <a href="https://gente.itam.mx/pablo.castaneda/documents/ColMat_compressed.pdf" target="_blank" rel="noreferrer" class="timeline__link">
+                <span data-lang="es">Ver publicación (Pág. 58) →</span>
+                <span data-lang="en">View publication (Pg. 58) →</span>
+              </a>
+              <span class="timeline__tag">ITAM</span>
+            </div>
+          </div>
+
+          <!-- 2022 - Revista Cámara de Diputados -->
+          <div class="timeline__item fade-in-up" data-timeline-type="publication">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--pub">
+                <!-- File text -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/periodismo.svg" alt="Revista Cámara de Diputados" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2022 – <span data-lang="es">Presente</span><span data-lang="en">Present</span></span>
+              <span class="timeline__badge timeline__badge--pub">
+                <span data-lang="es">Publicaciones</span>
+                <span data-lang="en">Publications</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Periodista Legislativo — Revista Cámara de Diputados</span>
+                <span data-lang="en">Legislative Journalist — Chamber of Deputies Magazine</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Artículos publicados: "El papel de los jóvenes ante el cambio climático", "Para acabar con la desigualdad se necesitan reformas tributarias", "Límites y alcances de la adopción de modelos Open Banking en México".</p>
+              <p class="timeline__desc" data-lang="en">Published articles: "The role of youth in climate change", "Ending inequality requires tax reforms", "Limits and scope of Open Banking model adoption in Mexico".</p>
+              <div class="timeline__links">
+                <a href="https://comunicacionsocial.diputados.gob.mx/revista/index.php/en-opinion-de/el-papel-de-los-jovenes-ante-el-cambio-climatico" target="_blank" rel="noreferrer" class="timeline__link">
+                  <span data-lang="es">Cambio Climático →</span>
+                  <span data-lang="en">Climate Change →</span>
+                </a>
+                <a href="https://comunicacionsocial.diputados.gob.mx/revista/index.php/pluralidad/para-acabar-con-la-desigualdad-se-necesitan-reformas-tributarias" target="_blank" rel="noreferrer" class="timeline__link">
+                  <span data-lang="es">Reformas Tributarias →</span>
+                  <span data-lang="en">Tax Reforms →</span>
+                </a>
+                <a href="https://comunicacionsocial.diputados.gob.mx/revista/index.php/pluralidad/limites-y-alcances-de-la-adopcion-de-modelos-open-banking-en-mexico" target="_blank" rel="noreferrer" class="timeline__link">Open Banking →</a>
+              </div>
+              <span class="timeline__tag" data-lang="es">Política</span>
+              <span class="timeline__tag" data-lang="en">Policy</span>
+              <span class="timeline__tag" data-lang="es">Economía</span>
+              <span class="timeline__tag" data-lang="en">Economics</span>
+            </div>
+          </div>
+
+          <!-- 2021-2022 - Acción Educativa por México -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">Ene. 2021 – Ago. 2022</span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Docencia</span>
+                <span data-lang="en">Teaching</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Acción Educativa por México — Profesor de Español</span>
+                <span data-lang="en">Acción Educativa por México — Spanish Teacher</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Diseño e impartición de clases de Español para preparación al examen COMIPEMS (admisión a educación media superior). Comprensión lectora, redacción y análisis de texto. Materiales didácticos, simulacros y evaluación periódica. Métodos diferenciados por nivel de competencia.</p>
+              <p class="timeline__desc" data-lang="en">Design and delivery of Spanish classes for COMIPEMS exam preparation (high school admission). Reading comprehension, writing, and text analysis. Teaching materials, mock exams, and periodic assessment. Differentiated methods by competency level.</p>
+              <span class="timeline__tag" data-lang="es">Docencia</span>
+              <span class="timeline__tag" data-lang="en">Teaching</span>
+              <span class="timeline__tag">COMIPEMS</span>
+              <span class="timeline__tag" data-lang="es">Ciudad de México</span>
+              <span class="timeline__tag" data-lang="en">Mexico City</span>
+              <div style="margin-top: var(--spacing-sm);">
+                <a class="btn btn--ghost" href="https://www.instagram.com/aem_itam/" target="_blank" rel="noreferrer" style="font-size: var(--font-size-sm); padding: 4px 12px;">Instagram</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2020-2021 - Teatro ITAM Presidente -->
+          <div class="timeline__item fade-in-up" data-timeline-type="work">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <img src="assets/img/teatro.svg" alt="Teatro ITAM" class="timeline__img" loading="lazy" />
+              <span class="timeline__year">2020 – 2024</span>
+              <span class="timeline__badge timeline__badge--work">
+                <span data-lang="es">Gestión Cultural</span>
+                <span data-lang="en">Cultural Management</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Teatro ITAM — Presidente y Tesorero</span>
+                <span data-lang="en">Teatro ITAM — President and Treasurer</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Presidente (2020–Primavera 2021, 2024) y Tesorero (Otoño 2021–2023). Producción del 1er y 2do Festival de Teatro (4 y 7 compañías). Obra original "Roomies". Evento con Elena Poniatowska. Actor en más de 15 puestas en escena.</p>
+              <p class="timeline__desc" data-lang="en">President (2020–Spring 2021, 2024) and Treasurer (Fall 2021–2023). Production of 1st and 2nd Theater Festivals (4 and 7 companies). Original play "Roomies". Event with Elena Poniatowska. Actor in over 15 stage performances.</p>
+              <a href="https://youtu.be/635nQf_JnHk" target="_blank" rel="noreferrer" class="timeline__link">
+                <span data-lang="es">Ver 2do Festival →</span>
+                <span data-lang="en">Watch 2nd Festival →</span>
+              </a>
+              <span class="timeline__tag" data-lang="es">Producción</span>
+              <span class="timeline__tag" data-lang="en">Production</span>
+              <span class="timeline__tag">ITAM</span>
+            </div>
+          </div>
+
+          <!-- Formación ITAM -->
+          <div class="timeline__item fade-in-up" data-timeline-type="academic">
+            <div class="timeline__marker">
+              <span class="timeline__icon timeline__icon--academic">
+                <!-- Graduation cap -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </span>
+            </div>
+            <div class="timeline__content glass">
+              <span class="timeline__year">ITAM</span>
+              <span class="timeline__badge timeline__badge--academic">
+                <span data-lang="es">Educación</span>
+                <span data-lang="en">Education</span>
+              </span>
+              <h3 class="timeline__title">
+                <span data-lang="es">Licenciatura en Economía y Administración</span>
+                <span data-lang="en">Bachelor's in Economics and Administration</span>
+              </h3>
+              <p class="timeline__desc" data-lang="es">Instituto Tecnológico Autónomo de México. Beca Baillères. Formación analítica y de gestión orientada a la toma de decisiones. Idiomas: Español (nativo) / Inglés (fluido).</p>
+              <p class="timeline__desc" data-lang="en">Instituto Tecnológico Autónomo de México. Baillères Scholarship. Analytical and management training focused on decision-making. Languages: Spanish (native) / English (fluent).</p>
+              <span class="timeline__tag" data-lang="es">Beca Baillères</span>
+              <span class="timeline__tag" data-lang="en">Baillères Scholarship</span>
+              <span class="timeline__tag" data-lang="es">Economía</span>
+              <span class="timeline__tag" data-lang="en">Economics</span>
+              <span class="timeline__tag" data-lang="es">Administración</span>
+              <span class="timeline__tag" data-lang="en">Administration</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Intereses Personales -->
+    <section class="interests" id="intereses" aria-labelledby="interests-title">
+      <div class="container">
+        <header class="interests__header fade-in-up">
+          <h2 id="interests-title" class="interests__title">
+            <span data-lang="es">Más allá del trabajo</span>
+            <span data-lang="en">Beyond Work</span>
+          </h2>
+          <p class="interests__lead">
+            <span data-lang="es">Deportes, logros y aventuras que me definen fuera de lo profesional.</span>
+            <span data-lang="en">Sports, achievements, and adventures that define me beyond the professional.</span>
+          </p>
+        </header>
+
+        <div class="interests__bento">
+
+          <!-- ── DEPORTES ── -->
+          <div class="interests__card interests__card--sports glass fade-in-up">
+            <div class="interests__card-head">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              <h3 class="interests__card-title">
+                <span data-lang="es">Deportes</span>
+                <span data-lang="en">Sports</span>
+              </h3>
+            </div>
+
+            <!-- Deporte activo -->
+            <div class="interests__active-sport">
+              <span class="interests__active-badge">
+                <span data-lang="es">Activo</span>
+                <span data-lang="en">Active</span>
+              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20M2 12h20M12 2c-2.76 3.34-4 6.67-4 10s1.24 6.66 4 10M12 2c2.76 3.34 4 6.67 4 10s-1.24 6.66-4 10"/></svg>
+              <span class="interests__active-name">Ultimate Frisbee</span>
+            </div>
+
+            <!-- Deportes practicados -->
+            <p class="interests__past-label">
+              <span data-lang="es">También practicados</span>
+              <span data-lang="en">Also practiced</span>
+            </p>
+            <div class="interests__sport-pills">
+              <span class="interests__pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M12 6v12M8 10l4-4 4 4M8 14l4 4 4-4"/></svg>
+                <span data-lang="es">Ajedrez</span><span data-lang="en">Chess</span>
+              </span>
+              <span class="interests__pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l7-7 7 7"/><path d="M5 12h14"/></svg>
+                <span data-lang="es">Tiro con arco</span><span data-lang="en">Archery</span>
+              </span>
+              <span class="interests__pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
+                <span data-lang="es">Básquetbol</span><span data-lang="en">Basketball</span>
+              </span>
+              <span class="interests__pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                <span data-lang="es">Fútbol</span><span data-lang="en">Soccer</span>
+              </span>
+              <span class="interests__pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+                Taekwondo
+              </span>
+              <span class="interests__pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M7 7l10 10M17 7L7 17"/></svg>
+                <span data-lang="es">Tenis</span><span data-lang="en">Tennis</span>
+              </span>
+            </div>
+
+            <!-- Logros -->
+            <div class="interests__achievements">
+              <div class="interests__trophy interests__trophy--gold">
+                <span class="interests__medal interests__medal--gold">1°</span>
+                <div class="interests__trophy-info">
+                  <strong data-lang="es">Olimpiada Municipal · Ajedrez</strong>
+                  <strong data-lang="en">Municipal Olympiad · Chess</strong>
+                  <span>2015</span>
+                </div>
+              </div>
+              <div class="interests__trophy interests__trophy--bronze">
+                <span class="interests__medal interests__medal--bronze">3°</span>
+                <div class="interests__trophy-info">
+                  <strong data-lang="es">Torneo de Tenis</strong>
+                  <strong data-lang="en">Tennis Tournament</strong>
+                  <span data-lang="es">Nogales, Sonora</span>
+                  <span data-lang="en">Nogales, Sonora</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── PASATIEMPOS ── -->
+          <div class="interests__card interests__card--hobbies glass fade-in-up">
+            <div class="interests__card-head">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M8 10h2M12 8v4M16 10h2"/></svg>
+              <h3 class="interests__card-title">
+                <span data-lang="es">Pasatiempos</span>
+                <span data-lang="en">Hobbies</span>
+              </h3>
+            </div>
+            <div class="interests__hobby">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="interests__hobby-icon" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M8 10h2M12 8v4M16 10h2M6 14h.01M18 14h.01"/></svg>
+              <span class="interests__hobby-name">
+                <span data-lang="es">Videojuegos</span>
+                <span data-lang="en">Video Games</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- ── VIAJES ── -->
+          <div class="interests__card interests__card--travel glass fade-in-up">
+            <div class="interests__card-head">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2c-2.76 3.34-4 6.67-4 10s1.24 6.66 4 10M12 2c2.76 3.34 4 6.67 4 10s-1.24 6.66-4 10"/></svg>
+              <h3 class="interests__card-title">
+                <span data-lang="es">Viajes</span>
+                <span data-lang="en">Travel</span>
+              </h3>
+            </div>
+            <div class="interests__travel-body">
+              <div class="interests__travel-stat">
+                <span class="interests__stat-num">20+</span>
+                <span class="interests__stat-label">
+                  <span data-lang="es">estados de México explorados</span>
+                  <span data-lang="en">Mexican states explored</span>
+                </span>
+              </div>
+              <div class="interests__destinations">
+                <span class="interests__dest">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                  <span data-lang="es">Sur de EUA</span>
+                  <span data-lang="en">Southern USA</span>
+                </span>
+                <span class="interests__dest">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                  <span data-lang="es">Turquía</span>
+                  <span data-lang="en">Turkey</span>
+                </span>
+                <span class="interests__dest">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                  <span data-lang="es">India</span>
+                  <span data-lang="en">India</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section class="contact" id="contacto">
+      <div class="container">
+        <header class="contact__header fade-in-up">
+          <h2 class="contact__title">
+            <span data-lang="es">Contacto</span>
+            <span data-lang="en">Contact</span>
+          </h2>
+          <p class="contact__lead">
+            <span data-lang="es"
+              >¿Tienes un proyecto en mente? Conversemos</span
+            >
+            <span data-lang="en">Have a project in mind? Let's talk</span>
+          </p>
+        </header>
+
+        <div class="contact__body">
+
+        <!--
+          ============================================
+          FORMULARIO DE CONTACTO - CONFIGURACIÓN AWS
+          ============================================
+
+          ANTES DE DEPLOYMENT:
+          1. Crear cuenta en formspree.io
+          2. Crear nuevo form y obtener endpoint
+          3. Reemplazar "TU-FORMSPREE-ENDPOINT" con tu endpoint real
+             Ejemplo: https://formspree.io/f/xyzabc123
+
+          Ver DEPLOY_AWS.md Paso 5 para instrucciones completas
+        -->
+        <form
+          id="contact-form"
+          class="contact-form fade-in-up"
+          name="contact"
+          method="POST"
+          action="TU-FORMSPREE-ENDPOINT"
+          novalidate
+        >
+          <!-- Honeypot para protección anti-spam -->
+          <div hidden aria-hidden="true">
+            <label>
+              <span data-lang="es">No llenes este campo si eres humano:</span>
+              <span data-lang="en">Don't fill this out if you're human:</span>
+              <input name="bot-field" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <!-- Nombre -->
+          <div class="form-field">
+            <label for="name" class="form-label">
+              <span data-lang="es">Nombre</span>
+              <span data-lang="en">Name</span>
+              <span class="required" aria-label="requerido">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+              autocomplete="name"
+              placeholder="Alberto Báez"
+              aria-describedby="name-error"
+            />
+            <span class="form-error" id="name-error" role="alert"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-field">
+            <label for="email" class="form-label">
+              Email
+              <span class="required" aria-label="requerido">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+              autocomplete="email"
+              placeholder="tu@email.com"
+              aria-describedby="email-error"
+            />
+            <span class="form-error" id="email-error" role="alert"></span>
+          </div>
+
+          <!-- Asunto -->
+          <div class="form-field">
+            <label for="subject" class="form-label">
+              <span data-lang="es">Asunto</span>
+              <span data-lang="en">Subject</span>
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-input"
+              autocomplete="off"
+              placeholder=""
+            />
+          </div>
+
+          <!-- Mensaje -->
+          <div class="form-field">
+            <label for="message" class="form-label">
+              <span data-lang="es">Mensaje</span>
+              <span data-lang="en">Message</span>
+              <span class="required" aria-label="requerido">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              rows="5"
+              required
+              placeholder=""
+              aria-describedby="message-error"
+            ></textarea>
+            <span class="form-error" id="message-error" role="alert"></span>
+          </div>
+
+          <!-- Estado del formulario -->
+          <div
+            class="form-status"
+            id="form-status"
+            role="status"
+            aria-live="polite"
+          >
+            <dotlottie-wc
+              id="error-animation"
+              src="https://lottie.host/0a4e21d8-49fe-454c-9d33-9b9a5fb2b968/HawYrvKD9I.lottie"
+              class="form-status__animation"
+              autoplay
+              loop
+              style="display: none"
+            >
+            </dotlottie-wc>
+            <span class="form-status__text"></span>
+          </div>
+
+          <!-- Botón submit -->
+          <button type="submit" class="btn btn--primary btn--large">
+            <span data-lang="es">Enviar Mensaje</span>
+            <span data-lang="en">Send Message</span>
+          </button>
+        </form>
+
+        <!-- Información de contacto alternativa -->
+        <div class="contact__info fade-in-up">
+
+          <!-- Email -->
+          <div class="contact__info-item">
+            <svg class="contact__icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <path d="M22 6l-10 7L2 6"/>
+            </svg>
+            <a href="mailto:alberto@baezjimenez.com" class="contact__link">alberto@baezjimenez.com</a>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="contact__info-item">
+            <svg class="contact__icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <a href="tel:+526311770278" class="contact__link">+52 631 177 0278</a>
+          </div>
+
+          <!-- Redes sociales como botones -->
+          <div class="contact__social-btns">
+            <a
+              class="btn btn--primary"
+              href="https://linkedin.com/in/alberto-baez-jimenez"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a
+              class="btn btn--ghost"
+              href="https://www.instagram.com/alberto.baezz.2042/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </div>
+
+        </div>
+
+        </div><!-- /.contact__body -->
+      </div>
+    </section>
+
     <footer class="footer">
-      <p class="footer__text">&copy; 2026 Derechos Reservados.</p>
+      <img
+        src="assets/img/logoabj.svg"
+        alt="ABJ Logo"
+        class="footer__logo footer__logo--light"
+        width="36"
+        height="36"
+      />
+      <img
+        src="assets/img/logoabjo.svg"
+        alt="ABJ Logo"
+        class="footer__logo footer__logo--dark"
+        width="36"
+        height="36"
+      />
+      <p class="footer__text">
+        <span data-lang="es"
+          >&copy; 2026 Alberto Báez Jiménez. Todos los derechos
+          reservados.</span
+        >
+        <span data-lang="en"
+          >&copy; 2026 Alberto Báez Jiménez. All rights reserved.</span
+        >
+      </p>
     </footer>
+
+    <script>
+      /**
+       * ====================================
+       * INTERACTIVIDAD DEL PORTAFOLIO
+       * ====================================
+       */
+      document.addEventListener('DOMContentLoaded', () => {
+        // =====================================
+        // 1. THEME TOGGLE (Dark/Light Mode)
+        // =====================================
+        const STORAGE_KEY = 'theme';
+        const root = document.documentElement;
+        const themeToggleBtn = document.querySelector('[data-theme-toggle]');
+
+        const getPreferredTheme = () => {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (stored === 'light' || stored === 'dark') return stored;
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        };
+
+        const applyTheme = (theme) => {
+          root.dataset.theme = theme;
+          themeToggleBtn?.setAttribute(
+            'aria-pressed',
+            theme === 'dark' ? 'false' : 'true',
+          );
+          themeToggleBtn?.setAttribute(
+            'aria-label',
+            theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro',
+          );
+        };
+
+        // Aplicar tema inicial
+        applyTheme(getPreferredTheme());
+
+        // Toggle al hacer clic
+        themeToggleBtn?.addEventListener('click', () => {
+          const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          localStorage.setItem(STORAGE_KEY, nextTheme);
+          applyTheme(nextTheme);
+        });
+
+        // =====================================
+        // 2. LANGUAGE TOGGLE (ES/EN)
+        // =====================================
+        const LANG_STORAGE_KEY = 'lang';
+        const langToggleBtn = document.querySelector('[data-lang-toggle]');
+        const langToggleText =
+          langToggleBtn?.querySelector('.lang-toggle__text');
+
+        const getPreferredLang = () => {
+          const stored = localStorage.getItem(LANG_STORAGE_KEY);
+          if (stored === 'es' || stored === 'en') return stored;
+          // Detectar idioma del navegador
+          const browserLang = navigator.language.toLowerCase();
+          return browserLang.startsWith('es') ? 'es' : 'en';
+        };
+
+        const applyLang = (lang) => {
+          root.dataset.lang = lang;
+
+          // Actualizar texto del botón
+          if (langToggleText) {
+            langToggleText.textContent = lang === 'es' ? 'ES' : 'EN';
+          }
+
+          // Actualizar aria-pressed
+          langToggleBtn?.setAttribute(
+            'aria-pressed',
+            lang === 'en' ? 'true' : 'false',
+          );
+
+          // Actualizar aria-label
+          langToggleBtn?.setAttribute(
+            'aria-label',
+            lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish',
+          );
+
+          // Actualizar lang del HTML
+          document.documentElement.lang = lang;
+        };
+
+        // Aplicar idioma inicial
+        applyLang(getPreferredLang());
+
+        // Toggle al hacer clic
+        langToggleBtn?.addEventListener('click', () => {
+          const nextLang = root.dataset.lang === 'es' ? 'en' : 'es';
+          localStorage.setItem(LANG_STORAGE_KEY, nextLang);
+          applyLang(nextLang);
+        });
+
+        // =====================================
+        // 3. CONTRAST TOGGLE (Normal/High Contrast)
+        // =====================================
+        const CONTRAST_STORAGE_KEY = 'contrast';
+        const contrastToggleBtn = document.querySelector(
+          '[data-contrast-toggle]',
+        );
+
+        const getPreferredContrast = () => {
+          const stored = localStorage.getItem(CONTRAST_STORAGE_KEY);
+          if (stored === 'normal' || stored === 'high') return stored;
+          // Detectar preferencia del sistema
+          return window.matchMedia('(prefers-contrast: more)').matches
+            ? 'high'
+            : 'normal';
+        };
+
+        const applyContrast = (contrast) => {
+          if (contrast === 'high') {
+            root.dataset.contrast = 'high';
+          } else {
+            root.removeAttribute('data-contrast');
+          }
+
+          // Actualizar aria-pressed
+          contrastToggleBtn?.setAttribute(
+            'aria-pressed',
+            contrast === 'high' ? 'true' : 'false',
+          );
+
+          // Actualizar título según idioma actual
+          const currentLang = root.dataset.lang || 'es';
+          const title =
+            contrast === 'high'
+              ? currentLang === 'es'
+                ? 'Desactivar modo de alto contraste'
+                : 'Disable high contrast mode'
+              : currentLang === 'es'
+                ? 'Activar modo de alto contraste'
+                : 'Enable high contrast mode';
+          contrastToggleBtn?.setAttribute('title', title);
+        };
+
+        // Aplicar contraste inicial
+        applyContrast(getPreferredContrast());
+
+        // Toggle al hacer clic
+        contrastToggleBtn?.addEventListener('click', () => {
+          const nextContrast =
+            root.dataset.contrast === 'high' ? 'normal' : 'high';
+          localStorage.setItem(CONTRAST_STORAGE_KEY, nextContrast);
+          applyContrast(nextContrast);
+        });
+
+        // =====================================
+        // 4. PROJECT FILTERS
+        // =====================================
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectsGrid = document.querySelector('[data-project-grid]');
+        const emptyState = document.getElementById('empty-state');
+
+        const setActiveFilter = (activeBtn) => {
+          filterButtons.forEach((btn) => btn.classList.remove('is-active'));
+          activeBtn.classList.add('is-active');
+        };
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            setActiveFilter(btn);
+
+            // Animación de filtrado
+            if (projectsGrid) {
+              projectsGrid.classList.add('is-filtering');
+            }
+
+            // Pequeño delay para transición suave
+            setTimeout(() => {
+              projectCards.forEach((card) => {
+                const tech = (card.dataset.tech || '').split(' ');
+                const shouldShow = filter === 'all' || tech.includes(filter);
+                card.toggleAttribute('hidden', !shouldShow);
+
+                // Accesibilidad: anunciar cambio
+                if (shouldShow && card.hasAttribute('hidden')) {
+                  card.removeAttribute('hidden');
+                }
+              });
+
+              // Contar proyectos visibles
+              const visibleCount = document.querySelectorAll(
+                '.project-card:not([hidden])',
+              ).length;
+
+              // Mostrar/ocultar empty state
+              if (emptyState) {
+                if (visibleCount === 0) {
+                  emptyState.hidden = false;
+                  if (projectsGrid) projectsGrid.style.display = 'none';
+                } else {
+                  emptyState.hidden = true;
+                  if (projectsGrid) projectsGrid.style.display = 'grid';
+                }
+              }
+
+              // Anunciar resultados
+              const currentLang = root.dataset.lang || 'es';
+              const message =
+                currentLang === 'es'
+                  ? `Mostrando ${visibleCount} proyecto${visibleCount !== 1 ? 's' : ''}`
+                  : `Showing ${visibleCount} project${visibleCount !== 1 ? 's' : ''}`;
+
+              console.log(message);
+
+              // Anunciar a lectores de pantalla
+              const statusElement = document.getElementById('filter-status');
+              if (statusElement) {
+                statusElement.textContent = message;
+              }
+
+              // Actualizar contador visual
+              const countElement = document.getElementById('projects-count');
+              if (countElement) {
+                const countES = countElement.querySelector('[data-lang="es"]');
+                const countEN = countElement.querySelector('[data-lang="en"]');
+
+                if (countES) {
+                  countES.innerHTML = `Mostrando <strong>${visibleCount}</strong> proyecto${visibleCount !== 1 ? 's' : ''}`;
+                }
+                if (countEN) {
+                  countEN.innerHTML = `Showing <strong>${visibleCount}</strong> project${visibleCount !== 1 ? 's' : ''}`;
+                }
+              }
+
+              // Remover clase de filtrado
+              if (projectsGrid) {
+                projectsGrid.classList.remove('is-filtering');
+              }
+            }, 150);
+          });
+        });
+
+        // Inicializar estado vacío al cargar la página
+        if (emptyState) {
+          const initialVisibleCount = document.querySelectorAll(
+            '.project-card:not([hidden])',
+          ).length;
+          emptyState.hidden = initialVisibleCount > 0;
+          if (projectsGrid) {
+            projectsGrid.style.display =
+              initialVisibleCount > 0 ? 'grid' : 'none';
+          }
+        }
+
+        // =====================================
+        // 5. MOBILE MENU TOGGLE
+        // =====================================
+        const menuToggle = document.querySelector('.header__nav-toggle');
+        const menuList = document.querySelector('.header__nav-list');
+
+        if (menuToggle && menuList) {
+          // Toggle menú al hacer clic en el botón
+          menuToggle.addEventListener('click', () => {
+            const isExpanded =
+              menuToggle.getAttribute('aria-expanded') === 'true';
+
+            // Actualizar estado ARIA
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+
+            // Toggle clase is-open
+            menuList.classList.toggle('is-open');
+
+            // Cambiar texto del botón
+            const toggleText = menuToggle.querySelector(
+              '.header__nav-toggle-text',
+            );
+            if (toggleText) {
+              toggleText.textContent = isExpanded ? 'Menú' : 'Cerrar';
+            }
+          });
+
+          // Cerrar menú al hacer clic en un enlace
+          const menuLinks = menuList.querySelectorAll('.header__nav-link');
+          menuLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+              menuToggle.setAttribute('aria-expanded', 'false');
+              menuList.classList.remove('is-open');
+              const toggleText = menuToggle.querySelector(
+                '.header__nav-toggle-text',
+              );
+              if (toggleText) {
+                toggleText.textContent = 'Menú';
+              }
+            });
+          });
+
+          // Cerrar menú al hacer clic fuera
+          document.addEventListener('click', (e) => {
+            if (
+              !menuToggle.contains(e.target) &&
+              !menuList.contains(e.target)
+            ) {
+              if (menuToggle.getAttribute('aria-expanded') === 'true') {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuList.classList.remove('is-open');
+                const toggleText = menuToggle.querySelector(
+                  '.header__nav-toggle-text',
+                );
+                if (toggleText) {
+                  toggleText.textContent = 'Menú';
+                }
+              }
+            }
+          });
+        }
+
+        // =====================================
+        // 6. SCROLL ANIMATIONS (IntersectionObserver)
+        // =====================================
+        // Detectar cuando elementos entran en viewport y aplicar animación
+        const observerOptions = {
+          root: null, // viewport
+          rootMargin: '0px 0px -100px 0px', // Trigger 100px antes del viewport
+          threshold: 0.1, // 10% del elemento visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              // Dejar de observar una vez animado (performance)
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observar todos los elementos con clase fade-in-up
+        const animatedElements = document.querySelectorAll('.fade-in-up');
+        animatedElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Mostrar inmediatamente si prefers-reduced-motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          animatedElements.forEach((element) => {
+            element.classList.add('is-visible');
+          });
+        }
+
+        // =====================================
+        // 7. PROJECT MODAL
+        // =====================================
+        const modal = document.getElementById('project-modal');
+        const modalCarouselEl   = document.getElementById('modal-carousel');
+        const modalCarouselDots = document.getElementById('modal-carousel-dots');
+        const modalPrevBtn      = modalCarouselEl?.querySelector('.modal-carousel__btn--prev');
+        const modalNextBtn      = modalCarouselEl?.querySelector('.modal-carousel__btn--next');
+        const modalTitle = document.getElementById('modal-title');
+
+        // ── Modal carousel state ──
+        let mSlides = [];
+        let mDots   = [];
+        let mCur    = 0;
+
+        function mGoTo(idx) {
+          if (mSlides.length <= 1) return;
+          mSlides[mCur].classList.remove('is-active');
+          mSlides[mCur].setAttribute('aria-hidden', 'true');
+          if (mDots[mCur]) mDots[mCur].classList.remove('is-active');
+          mCur = (idx + mSlides.length) % mSlides.length;
+          mSlides[mCur].classList.add('is-active');
+          mSlides[mCur].removeAttribute('aria-hidden');
+          if (mDots[mCur]) mDots[mCur].classList.add('is-active');
+        }
+
+        function buildModalCarousel(images) {
+          // Remove previous slides
+          modalCarouselEl.querySelectorAll('.modal-carousel__slide').forEach(el => el.remove());
+          modalCarouselDots.innerHTML = '';
+          mSlides = []; mDots = []; mCur = 0;
+
+          images.forEach(({ src, alt }, i) => {
+            const img = document.createElement('img');
+            img.className = 'modal-carousel__slide' + (i === 0 ? ' is-active' : '');
+            img.src = src;
+            img.alt = alt || '';
+            img.loading = 'lazy';
+            if (i !== 0) img.setAttribute('aria-hidden', 'true');
+            // Insert before the prev button
+            modalCarouselEl.insertBefore(img, modalPrevBtn);
+            mSlides.push(img);
+
+            if (images.length > 1) {
+              const dot = document.createElement('button');
+              dot.type = 'button';
+              dot.className = 'carousel__dot' + (i === 0 ? ' is-active' : '');
+              dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+              dot.addEventListener('click', () => mGoTo(i));
+              modalCarouselDots.appendChild(dot);
+              mDots.push(dot);
+            }
+          });
+
+          const multi = images.length > 1;
+          modalPrevBtn.hidden = !multi;
+          modalNextBtn.hidden = !multi;
+          modalCarouselDots.hidden = !multi;
+        }
+
+        modalPrevBtn?.addEventListener('click', () => mGoTo(mCur - 1));
+        modalNextBtn?.addEventListener('click', () => mGoTo(mCur + 1));
+
+        // Swipe in modal
+        let mTouchX = 0;
+        modalCarouselEl?.addEventListener('touchstart', (e) => { mTouchX = e.touches[0].clientX; }, { passive: true });
+        modalCarouselEl?.addEventListener('touchend', (e) => {
+          const diff = mTouchX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 30) mGoTo(diff > 0 ? mCur + 1 : mCur - 1);
+        });
+        const modalDescription = document.getElementById('modal-description');
+        const modalTags = document.getElementById('modal-tags');
+        const modalProjectLink = document.getElementById('modal-demo-link');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalOverlay = document.querySelector('.project-modal__overlay');
+
+        // Datos extendidos de los proyectos
+        const projectsData = {
+          dataton: {
+            title: 'Datatón ITAM-INEGI-ANTAD 2024',
+            description: {
+              es: 'Primer lugar en el Datatón ITAM-INEGI-ANTAD 2024. Desarrollamos una estrategia integral de transformación digital para tiendas departamentales: análisis de datos avanzado, optimización logística con IA y enfoques cuánticos, e integración de ventas por WhatsApp.',
+              en: 'First place at Datatón ITAM-INEGI-ANTAD 2024. We developed a comprehensive digital transformation strategy for department stores: advanced data analysis, AI and quantum logistics optimization, and WhatsApp sales channel integration.',
+            },
+            tags: ['Análisis de Datos||Data Analysis', 'IA||AI', 'Optimización||Optimization', 'Primer Lugar||First Place'],
+            image: 'assets/img/dataton.svg',
+            projectUrl: 'https://www.canva.com/design/DAGVP0Y35ZI/G9Q5ar3d_P2_nhgh9XjIwg/view?utm_content=DAGVP0Y35ZI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5633cf3306',
+            linkLabel: 'Ver Presentación||View Presentation',
+          },
+          mireia: {
+            title: 'MireIA',
+            description: {
+              es: 'Startup de reclutamiento potenciado por inteligencia artificial. Seleccionado para START Incubator 2025 y participante en ROASTING SESSION. Automatiza y optimiza procesos de selección de talento para empresas.',
+              en: 'AI-powered recruitment startup. Selected for START Incubator 2025 and participant in ROASTING SESSION. Automates and optimizes talent selection processes for companies.',
+            },
+            tags: ['IA||AI', 'Startup||Startup', 'Reclutamiento||Recruitment', 'START Incubator||START Incubator'],
+            image: 'assets/img/MireIA.svg',
+            projectUrl: 'https://mireia.io/',
+            linkLabel: 'Ver Sitio||Visit Site',
+          },
+          glex: {
+            title: 'GLEX 2025 — Investigación Espacial||GLEX 2025 — Space Research',
+            description: {
+              es: '4 papers presentados en el Global Space Exploration Conference 2025 (Nueva Delhi, India), organizado por la International Astronautical Federation (IAF). Autor principal en Derecho Espacial y Justicia Restaurativa; coautor en IA aplicada a astrodinámica, operaciones de espacio profundo e ingeniería aeroespacial con materiales innovadores.',
+              en: '4 papers at the Global Space Exploration Conference 2025 (New Delhi, India), organized by the IAF. Main author on Space Law & Restorative Justice; co-author on AI applied to astrodynamics, deep-space operations, and aerospace engineering with innovative materials.',
+            },
+            tags: ['Investigación Espacial||Space Research', 'GLEX 2025||GLEX 2025', 'IAF||IAF', 'Justicia Restaurativa||Restorative Justice'],
+            image: 'assets/img/glex.svg',
+            projectUrl: 'https://mundoitam.com/2025/06/23/itam-conquista-espacio-estudiantes-destacan-glex-2025-india/',
+            linkLabel: 'Nota de Prensa||Press Release',
+            extraLinks: [
+              { label: '★ Autor Principal — Theoretical Models for Peaceful Space Coordination: A Restorative Justice Approach · Derecho Espacial & Resolución de Conflictos||★ Main Author — Theoretical Models for Peaceful Space Coordination: A Restorative Justice Approach · Space Law & Conflict Resolution', url: 'https://dl.iafastro.directory/event/GLEX-2025/paper/92922/' },
+              { label: 'Coautor — Adaptive Satellite State Estimation Using Liquid Neural Networks · IA & Astrodinámica||Co-Author — Adaptive Satellite State Estimation Using Liquid Neural Networks · AI & Astrodynamics', url: 'https://dl.iafastro.directory/event/GLEX-2025/paper/93893/' },
+              { label: 'Coautor — Optimizing Deep-Space Operations: The Impact of LuzIA on Crew Communication and Productivity · HCI & Espacio Profundo||Co-Author — Optimizing Deep-Space Operations: The Impact of LuzIA on Crew Communication and Productivity · HCI & Deep Space', url: 'https://dl.iafastro.directory/event/GLEX-2025/paper/93164/' },
+              { label: 'Coautor — A Novel CubeSat Design With Wood and Innovative Joining Mechanisms · Ing. Aeroespacial & Ciencia de Materiales||Co-Author — A Novel CubeSat Design With Wood and Innovative Joining Mechanisms · Aerospace Eng. & Materials Science', url: 'https://dl.iafastro.directory/event/GLEX-2025/paper/93161/' },
+            ],
+          },
+          teatro: {
+            title: 'Teatro ITAM — Gestión Cultural||Teatro ITAM — Cultural Management',
+            description: {
+              es: 'Presidente (2020–Primavera 2021, 2024) y Tesorero (Otoño 2021–2023) de Teatro ITAM. Producción del 1er y 2do Festival de Teatro con 4 y 7 compañías invitadas. Obra original "Roomies" con perspectiva de género. Evento con Elena Poniatowska. Gestión de crisis durante pandemia. Actor en más de 15 puestas en escena.',
+              en: 'President (2020–Spring 2021, 2024) and Treasurer (Fall 2021–2023) of Teatro ITAM. Production of the 1st and 2nd Theater Festivals with 4 and 7 guest companies. Original play "Roomies" with gender perspective. Event with Elena Poniatowska. Pandemic crisis management. Actor in over 15 stage performances.',
+            },
+            tags: ['Gestión Cultural||Cultural Management', 'Producción||Production', 'Liderazgo||Leadership', 'Teatro||Theater'],
+            image: 'assets/img/teatro.svg',
+            projectUrl: 'https://youtu.be/635nQf_JnHk',
+            linkLabel: 'Ver Festival||Watch Festival',
+          },
+          secuelas: {
+            title: 'Secuelas: El ocaso de la verdad',
+            description: {
+              es: 'Novela de fantasía política (lanzamiento 2026). Sigue a Azura, líder del pueblo dorita, en una confrontación ideológica contra Lu Moira II, emperatriz cuya visión de prosperidad encubre un orden plutocrático. Personajes diseñados con tipologías MBTI. Temas: traición, legitimidad del poder y absolutismos ideológicos. Desenlace deliberadamente ambiguo que anticipa una secuela.',
+              en: 'Political fantasy novel (2026 release). Follows Azura, leader of the Dorite people, in an ideological confrontation against Lu Moira II, an empress whose vision of prosperity conceals a plutocratic order. Characters designed using MBTI typologies. Themes: betrayal, legitimacy of power, and ideological absolutism. Deliberately ambiguous ending anticipating a sequel.',
+            },
+            tags: ['Fantasía Política||Political Fantasy', 'Escritura Creativa||Creative Writing', '2026||2026'],
+            image: 'assets/img/secuelas.svg',
+            projectUrl: '#',
+            linkLabel: 'Próximamente||Coming Soon',
+          },
+          dataztlan: {
+            title: 'Dataztlan — Director de Proyecto||Dataztlan — Project Director',
+            description: {
+              es: 'Dirección estratégica de proyectos de datos y tecnología desde diciembre 2023. Liderazgo de equipos multidisciplinarios, coordinación de entregables y desarrollo de soluciones de análisis de datos para clientes corporativos.',
+              en: 'Strategic direction of data and technology projects since December 2023. Leadership of multidisciplinary teams, deliverable coordination, and development of data analysis solutions for corporate clients.',
+            },
+            tags: ['Dirección de Proyecto||Project Direction', 'Análisis de Datos||Data Analysis', 'Estrategia||Strategy'],
+            image: 'assets/img/dataztlan.svg',
+            projectUrl: 'https://dataztlan.com/',
+            linkLabel: 'Ver Empresa||View Company',
+          },
+          csc: {
+            title: 'CSC ITAM — Cofundador||CSC ITAM — Co-Founder',
+            description: {
+              es: 'Cofundador del Centro de Solución de Conflictos del ITAM (2023–2024). Proyecto que diseñó procesos internos de mediación y auditoría de comportamiento organizacional, y que evolucionó hacia lo que hoy es Talento Colaborativo.',
+              en: 'Co-founder of the ITAM Conflict Resolution Center (2023–2024). A project that designed internal mediation processes and organizational behavior auditing, which evolved into what is today Talento Colaborativo.',
+            },
+            tags: ['Consultoría||Consulting', 'Mediación||Mediation', 'Cofundador||Co-Founder', 'ITAM||ITAM'],
+            image: 'assets/img/csc.svg',
+            projectUrl: 'https://www.talentocolaborativo.com/nosotros.html',
+            linkLabel: 'Ver Talento Colaborativo||Visit Talento Colaborativo',
+          },
+          canacintra: {
+            title: 'CANACINTRA — Ponente en IA Empresarial||CANACINTRA — AI in Business Speaker',
+            description: {
+              es: 'Conferencia "Aplicaciones de inteligencia artificial en un entorno empresarial dinámico" impartida ante la CANACINTRA Torreón el 23 de octubre de 2025. Exploración de casos de uso prácticos de IA para empresas: automatización, análisis predictivo, toma de decisiones basada en datos y transformación digital.',
+              en: 'Conference "Applications of artificial intelligence in a dynamic business environment" delivered at CANACINTRA Torreón on October 23, 2025. Practical AI use cases for businesses: automation, predictive analytics, data-driven decision making, and digital transformation.',
+            },
+            tags: ['IA||AI', 'Conferencia||Conference', 'CANACINTRA||CANACINTRA', 'Transformación Digital||Digital Transformation'],
+            image: 'assets/img/canac.svg',
+            projectUrl: 'https://es.linkedin.com/posts/canacintratrc_industriainteligente-transformaci%C3%B3ndigital-activity-7387273001043447809-va1L',
+            linkLabel: 'Ver en LinkedIn||View on LinkedIn',
+          },
+          caporg: {
+            title: 'Capacitación Organizacional — Institución Pública||Organizational Training — Public Institution',
+            description: {
+              es: 'Diseño e impartición de capacitaciones y círculos de diálogo de comportamiento organizacional dirigidos a una institución pública. Trabajo enfocado en cultura organizacional, clima laboral, comunicación interna y desarrollo de equipos de alto desempeño.',
+              en: 'Design and delivery of organizational behavior training and dialogue circles directed at a public institution. Work focused on organizational culture, work environment, internal communication, and high-performance team development.',
+            },
+            tags: ['Comportamiento Org.||Org. Behavior', 'Capacitación||Training', 'Sector Público||Public Sector', 'Facilitación||Facilitation'],
+            image: 'assets/img/sat.svg',
+            projectUrl: '#',
+            linkLabel: 'Ver Detalles||View Details',
+          },
+          cemex: {
+            title: 'CEMEX Hackathon — Vivienda Sostenible||CEMEX Hackathon — Sustainable Housing',
+            description: {
+              es: 'Hackathon organizado por CEMEX en Monterrey (octubre 2024). Desarrollamos un algoritmo de geolocalización para identificar las mejores ubicaciones de vivienda sostenible en zonas urbanas, integrando análisis espacial, accesibilidad, infraestructura y criterios de sustentabilidad ambiental.',
+              en: 'Hackathon organized by CEMEX in Monterrey (October 2024). We developed a geolocation algorithm to identify optimal sustainable housing locations in urban areas, integrating spatial analysis, accessibility, infrastructure, and environmental sustainability criteria.',
+            },
+            tags: ['Geolocalización||Geolocation', 'Algoritmo||Algorithm', 'Sustentabilidad||Sustainability', 'Hackathon||Hackathon', 'Monterrey||Monterrey'],
+            image: 'assets/img/cemex.svg',
+            projectUrl: 'https://www.canva.com/design/DAGWtDIyvcg/Eb7Rwj5ecOB1UoMqEwV1kw/view?utm_content=DAGWtDIyvcg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h04903e654e',
+            linkLabel: 'Ver Presentación||View Presentation',
+          },
+          genero: {
+            title: 'Género, Diversidad e Inclusión — ITAM||Gender, Diversity & Inclusion — ITAM',
+            description: {
+              es: 'Participación activa en eventos de promoción, divulgación y capacitación en materia de género, diversidad e inclusión dentro del ITAM. Generación de espacios de diálogo, talleres formativos y actividades de sensibilización con perspectiva de género e inclusión.',
+              en: 'Active participation in events promoting, disseminating, and training on gender, diversity, and inclusion within ITAM. Creation of dialogue spaces, training workshops, and awareness activities with a gender and inclusion perspective.',
+            },
+            tags: ['Género||Gender', 'Diversidad||Diversity', 'Inclusión||Inclusion', 'ITAM||ITAM', 'Capacitación||Training'],
+            image: 'assets/img/genero.svg',
+            projectUrl: '#',
+            linkLabel: 'Ver Detalles||View Details',
+          },
+          foro: {
+            title: 'Foro Conecta México — Senado de la República||Foro Conecta México — Senate of the Republic',
+            description: {
+              es: 'Participación como panelista en el "Foro Conecta México", organizado por el Senado de la República. Compartí perspectivas sobre las implicaciones económicas de la inteligencia artificial, oportunidades para México en el ecosistema tecnológico global y el papel del marco regulatorio en la adopción de tecnologías emergentes.',
+              en: 'Participation as a panelist at "Foro Conecta México", organized by the Senate of the Republic. Shared perspectives on the economic implications of artificial intelligence, opportunities for Mexico in the global technology ecosystem, and the role of regulatory frameworks in adopting emerging technologies.',
+            },
+            tags: ['Panelista||Panelist', 'IA||AI', 'Economía||Economics', 'Senado||Senate', 'Política Pública||Public Policy'],
+            image: 'assets/img/foro.svg',
+            projectUrl: '#',
+            linkLabel: 'Ver Detalles||View Details',
+          },
+          radio: {
+            title: 'Radio — Análisis Conflicto Israel-Palestina||Radio — Israel-Palestine Conflict Analysis',
+            description: {
+              es: 'Participación como panelista en un programa de radio dedicado al análisis del conflicto Israel-Palestina. Aportación desde una perspectiva geopolítica, económica y de resolución de conflictos, abordando las causas estructurales, los actores involucrados y los mecanismos de mediación internacional.',
+              en: 'Participation as a panelist in a radio program analyzing the Israel-Palestine conflict. Contribution from a geopolitical, economic, and conflict resolution perspective, addressing structural causes, involved actors, and international mediation mechanisms.',
+            },
+            tags: ['Geopolítica||Geopolitics', 'Análisis||Analysis', 'Medios||Media', 'Conflicto Internacional||International Conflict'],
+            image: 'assets/img/radio.svg',
+            projectUrl: 'https://youtu.be/EvcFFdUkJYs?si=afzISwvMvB5Zn3dg',
+            linkLabel: 'Escuchar en YouTube||Listen on YouTube',
+          },
+          revista: {
+            title: 'Análisis de Política Pública y Económica||Public and Economic Policy Analysis',
+            description: {
+              es: 'Colaboré como investigador y redactor en la Revista de la Cámara de Diputados (2022–2024), traduciendo discusiones parlamentarias complejas en análisis accesibles y rigurosos.\n\nEn materia fiscal, analicé cómo el diseño tributario mexicano puede funcionar como instrumento redistributivo, argumentando que reducir brechas económicas requiere reformas estructurales más allá de ajustes marginales. En el ámbito tecnológico-financiero, investigué los límites normativos del Open Banking en México y su potencial para democratizar el acceso a servicios financieros. Desde una perspectiva demográfica y ambiental, exploré el papel de los jóvenes en la política climática como actores con capacidad real de incidencia.',
+              en: 'I collaborated as a researcher and writer at the Chamber of Deputies Magazine (2022–2024), translating complex parliamentary discussions into accessible and rigorous analysis.\n\nOn fiscal policy, I analyzed how Mexico\'s tax design can function as a redistributive instrument, arguing that reducing economic gaps requires structural reforms beyond marginal adjustments. On financial technology, I researched the regulatory limits of Open Banking in Mexico and its potential to democratize financial access. From a demographic and environmental perspective, I explored the role of youth in climate policy as actors with real capacity for influence.',
+            },
+            tags: ['Política Fiscal||Fiscal Policy', 'Fintech||Fintech', 'Política Climática||Climate Policy', 'Periodismo Legislativo||Legislative Journalism'],
+            image: 'assets/img/periodismo.svg',
+            projectUrl: '#',
+            linkLabel: 'Ver Publicaciones||View Publications',
+            extraLinks: [
+              { label: 'Política Fiscal y Desigualdad||Fiscal Policy & Inequality', url: 'https://comunicacionsocial.diputados.gob.mx/revista/index.php/pluralidad/para-acabar-con-la-desigualdad-se-necesitan-reformas-tributarias' },
+              { label: 'Fintech y Regulación Bancaria||Fintech & Banking Regulation', url: 'https://comunicacionsocial.diputados.gob.mx/revista/index.php/pluralidad/limites-y-alcances-de-la-adopcion-de-modelos-open-banking-en-mexico' },
+              { label: 'Impacto Ambiental y Demografía||Environmental Impact & Demographics', url: 'https://comunicacionsocial.diputados.gob.mx/revista/index.php/en-opinion-de/el-papel-de-los-jovenes-ante-el-cambio-climatico' },
+            ],
+          },
+          ecopr: {
+            title: 'Ecopreneurs — UNAM · Watson Institute',
+            description: {
+              es: 'Primer lugar en Ecopreneurs (noviembre 2025), rally-hackathon de 2 horas organizado por la UNAM y el Watson Institute of Entrepreneurship. Elegimos el tema de moda sostenible y desarrollamos un modelo de economía circular: biomateriales y ropa reciclada transformados en material de recubrimiento térmico para viviendas. La propuesta demostró una ventaja económica clara frente al costo de oportunidad del relleno sanitario, integrando impacto ambiental con viabilidad de negocio.',
+              en: 'First place at Ecopreneurs (November 2025), a 2-hour rally-hackathon organized by UNAM and the Watson Institute of Entrepreneurship. We chose sustainable fashion as our theme and developed a circular economy model: biomaterials and recycled clothing transformed into thermal cladding material for housing. The proposal demonstrated a clear economic advantage over the opportunity cost of landfill disposal, combining environmental impact with business viability.',
+            },
+            tags: ['Economía Circular||Circular Economy', 'Sustentabilidad||Sustainability', 'Biomateriales||Biomaterials', 'Primer Lugar||First Place', 'Watson Institute||Watson Institute', 'UNAM||UNAM'],
+            image: 'assets/img/ecopr.svg',
+            projectUrl: '#',
+            linkLabel: 'Ver Detalles||View Details',
+          },
+        };
+
+        // Función para abrir el modal
+        function openModal(projectId) {
+          const project = projectsData[projectId];
+          if (!project) return;
+
+          const currentLang = root.dataset.lang || 'es';
+
+          // Manejar título bilingüe (formato "ES||EN" o solo texto)
+          const titleParts = project.title.split('||');
+          const projectTitle = titleParts.length > 1
+            ? (currentLang === 'es' ? titleParts[0] : titleParts[1])
+            : project.title;
+
+          modalTitle.textContent = projectTitle;
+
+          // Construir carousel con imágenes de la tarjeta (o imagen única del proyecto)
+          const card = document.querySelector(`[data-project-id="${projectId}"]`);
+          const cardSlides = card ? [...card.querySelectorAll('.carousel__slide')] : [];
+          const images = cardSlides.length > 0
+            ? cardSlides.map(img => ({ src: img.src, alt: img.alt || projectTitle }))
+            : [{ src: project.image, alt: projectTitle }];
+          buildModalCarousel(images);
+          modalDescription.textContent = project.description[currentLang];
+          modalProjectLink.href = project.projectUrl;
+
+          // Label del botón
+          if (project.linkLabel) {
+            const labelParts = project.linkLabel.split('||');
+            const label = labelParts.length > 1
+              ? (currentLang === 'es' ? labelParts[0] : labelParts[1])
+              : project.linkLabel;
+            modalProjectLink.textContent = label;
+          }
+
+          // Llenar tags
+          modalTags.innerHTML = '';
+          project.tags.forEach((tagPair) => {
+            const [esTag, enTag] = tagPair.split('||');
+            const li = document.createElement('li');
+            li.className = 'tag';
+            const spanEs = document.createElement('span');
+            spanEs.setAttribute('data-lang', 'es');
+            spanEs.textContent = esTag;
+            const spanEn = document.createElement('span');
+            spanEn.setAttribute('data-lang', 'en');
+            spanEn.textContent = enTag || esTag;
+            li.appendChild(spanEs);
+            li.appendChild(spanEn);
+            modalTags.appendChild(li);
+          });
+
+          // Links adicionales (ej. artículos múltiples)
+          let extraLinksContainer = document.getElementById('modal-extra-links');
+          if (project.extraLinks && project.extraLinks.length) {
+            if (!extraLinksContainer) {
+              extraLinksContainer = document.createElement('div');
+              extraLinksContainer.id = 'modal-extra-links';
+              extraLinksContainer.className = 'project-modal__extra-links';
+              modalProjectLink.parentElement.appendChild(extraLinksContainer);
+            }
+            extraLinksContainer.innerHTML = '';
+            project.extraLinks.forEach(({ label, url }) => {
+              const parts = label.split('||');
+              const text = parts.length > 1 ? (currentLang === 'es' ? parts[0] : parts[1]) : label;
+              const a = document.createElement('a');
+              a.href = url;
+              a.target = '_blank';
+              a.rel = 'noreferrer';
+              a.className = 'project-modal__extra-link';
+              a.textContent = text + ' →';
+              extraLinksContainer.appendChild(a);
+            });
+            extraLinksContainer.style.display = '';
+          } else if (extraLinksContainer) {
+            extraLinksContainer.style.display = 'none';
+          }
+
+          // Mostrar modal
+          modal.removeAttribute('hidden');
+          setTimeout(() => {
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          }, 10);
+
+          updateLanguage();
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+          modal.classList.remove('is-open');
+          document.body.style.overflow = '';
+          setTimeout(() => {
+            modal.setAttribute('hidden', '');
+          }, 300);
+        }
+
+        // Event listeners del modal
+        closeModalBtn?.addEventListener('click', closeModal);
+        modalOverlay?.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+          if (!modal.classList.contains('is-open')) return;
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowLeft')  mGoTo(mCur - 1);
+          if (e.key === 'ArrowRight') mGoTo(mCur + 1);
+        });
+
+        // Abrir modal al hacer clic en la tarjeta (por data-project-id)
+        document.querySelectorAll('.project-card[data-project-id]').forEach((card) => {
+          const projectId = card.dataset.projectId;
+          card.style.cursor = 'pointer';
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;           // No abrir si se clicó un enlace
+            if (e.target.closest('.carousel__btn')) return; // No abrir si se clicó un botón del carousel
+            if (e.target.closest('.carousel__dot')) return; // No abrir si se clicó un punto del carousel
+            openModal(projectId);
+          });
+        });
+
+        // Botones explícitos de abrir modal (data-open-modal)
+        document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal(btn.dataset.openModal);
+          });
+        });
+
+        // =====================================
+        // 8. SCROLL TO TOP BUTTON
+        // =====================================
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        const scrollThreshold = 500; // Mostrar después de 500px de scroll
+
+        // Función para verificar posición de scroll
+        function checkScrollPosition() {
+          const scrolled =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+          if (scrolled > scrollThreshold) {
+            scrollToTopBtn.removeAttribute('hidden');
+            // Pequeño delay para animación suave
+            setTimeout(() => {
+              scrollToTopBtn.classList.add('is-visible');
+            }, 10);
+          } else {
+            scrollToTopBtn.classList.remove('is-visible');
+            setTimeout(() => {
+              if (!scrollToTopBtn.classList.contains('is-visible')) {
+                scrollToTopBtn.setAttribute('hidden', '');
+              }
+            }, 300); // Esperar a que termine la animación
+          }
+        }
+
+        // Event listener para scroll
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+          // Throttle para mejor performance
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+          }
+          scrollTimeout = setTimeout(checkScrollPosition, 50);
+        });
+
+        // Event listener para click en el botón
+        scrollToTopBtn?.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        });
+
+        // =====================================
+        // 9. TYPING EFFECT
+        // =====================================
+        const typingText = document.getElementById('typing-text');
+
+        // Textos para el efecto typing (ES y EN)
+        const textsES = [
+          'Economista y Administrador',
+          'Director de Proyecto',
+          'Especialista en Análisis de Datos',
+        ];
+
+        const textsEN = [
+          'Economist and Administrator',
+          'Project Director',
+          'Data Analysis Specialist',
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeEffect() {
+          const currentLang = root.dataset.lang || 'es';
+          const texts = currentLang === 'es' ? textsES : textsEN;
+
+          if (!typingText) return;
+
+          const currentText = texts[textIndex];
+
+          if (isDeleting) {
+            // Borrar caracteres
+            typingText.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50; // Más rápido al borrar
+          } else {
+            // Escribir caracteres
+            typingText.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100; // Velocidad normal al escribir
+          }
+
+          // Cuando termina de escribir
+          if (!isDeleting && charIndex === currentText.length) {
+            typingSpeed = 2000; // Pausa al final
+            isDeleting = true;
+          }
+          // Cuando termina de borrar
+          else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length; // Siguiente texto
+            typingSpeed = 500; // Pausa antes de empezar el siguiente
+          }
+
+          setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Iniciar el efecto typing
+        if (typingText) {
+          setTimeout(typeEffect, 1000); // Esperar 1s antes de empezar
+        }
+
+        // =====================================
+        // 10. FORM VALIDATION
+        // =====================================
+        const contactForm = document.getElementById('contact-form');
+        const formInputs = contactForm?.querySelectorAll(
+          '.form-input, .form-textarea',
+        );
+        const formStatus = document.getElementById('form-status');
+        const formStatusText = formStatus?.querySelector('.form-status__text');
+        const errorAnimation = document.getElementById('error-animation');
+        const submitBtn = contactForm?.querySelector('button[type="submit"]');
+
+        // Mensajes de error bilingües
+        const errorMessages = {
+          es: {
+            required: 'Este campo es obligatorio',
+            email: 'Por favor ingresa un email válido',
+            minLength: 'Este campo debe tener al menos {min} caracteres',
+          },
+          en: {
+            required: 'This field is required',
+            email: 'Please enter a valid email',
+            minLength: 'This field must have at least {min} characters',
+          },
+        };
+
+        // Validar email
+        function isValidEmail(email) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Mostrar error
+        function showError(input, message) {
+          const errorElement = document.getElementById(`${input.id}-error`);
+          if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.classList.add('is-visible');
+          }
+          input.classList.add('is-invalid');
+          input.classList.remove('is-valid');
+        }
+
+        // Limpiar error
+        function clearError(input) {
+          const errorElement = document.getElementById(`${input.id}-error`);
+          if (errorElement) {
+            errorElement.textContent = '';
+            errorElement.classList.remove('is-visible');
+          }
+          input.classList.remove('is-invalid');
+        }
+
+        // Mostrar éxito
+        function showSuccess(input) {
+          clearError(input);
+          input.classList.add('is-valid');
+        }
+
+        // Validar campo individual
+        function validateField(input) {
+          const currentLang = root.dataset.lang || 'es';
+          const messages = errorMessages[currentLang];
+          const value = input.value.trim();
+
+          // Campo requerido
+          if (input.hasAttribute('required') && !value) {
+            showError(input, messages.required);
+            return false;
+          }
+
+          // Validación de email
+          if (input.type === 'email' && value && !isValidEmail(value)) {
+            showError(input, messages.email);
+            return false;
+          }
+
+          // Longitud mínima para mensaje
+          if (input.id === 'message' && value && value.length < 10) {
+            showError(input, messages.minLength.replace('{min}', '10'));
+            return false;
+          }
+
+          // Si pasa todas las validaciones
+          if (value) {
+            showSuccess(input);
+          } else {
+            clearError(input);
+            input.classList.remove('is-valid');
+          }
+          return true;
+        }
+
+        // Validar todo el formulario
+        function validateForm() {
+          let isValid = true;
+          formInputs?.forEach((input) => {
+            if (!validateField(input)) {
+              isValid = false;
+            }
+          });
+          return isValid;
+        }
+
+        // Event listeners para validación en tiempo real
+        formInputs?.forEach((input) => {
+          // Validar al escribir (después del primer blur)
+          input.addEventListener('blur', () => {
+            input.setAttribute('data-touched', 'true');
+            validateField(input);
+          });
+
+          input.addEventListener('input', () => {
+            if (input.hasAttribute('data-touched')) {
+              validateField(input);
+            }
+          });
+        });
+
+        // Manejar envío del formulario
+        contactForm?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          // Validar antes de enviar
+          if (!validateForm()) {
+            formStatusText.textContent =
+              root.dataset.lang === 'es'
+                ? 'Por favor corrige los errores antes de enviar'
+                : 'Please fix the errors before submitting';
+            formStatus.className = 'form-status error';
+            if (errorAnimation) errorAnimation.style.display = 'block';
+            return;
+          }
+
+          // Mostrar estado de carga
+          submitBtn?.classList.add('is-loading');
+          submitBtn?.setAttribute('disabled', 'true');
+          formStatusText.textContent = '';
+          formStatus.className = 'form-status';
+          if (errorAnimation) errorAnimation.style.display = 'none';
+
+          try {
+            // Enviar formulario
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (response.ok) {
+              // Éxito
+              formStatusText.textContent =
+                root.dataset.lang === 'es'
+                  ? '¡Mensaje enviado! Te contactaré pronto.'
+                  : 'Message sent! I will contact you soon.';
+              formStatus.className = 'form-status success';
+              if (errorAnimation) errorAnimation.style.display = 'none';
+              contactForm.reset();
+              formInputs?.forEach((input) => {
+                input.classList.remove('is-valid', 'is-invalid');
+                input.removeAttribute('data-touched');
+              });
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (error) {
+            // Error
+            formStatusText.textContent =
+              root.dataset.lang === 'es'
+                ? 'Hubo un error al enviar el mensaje. Por favor intenta de nuevo.'
+                : 'There was an error sending the message. Please try again.';
+            formStatus.className = 'form-status error';
+            if (errorAnimation) errorAnimation.style.display = 'block';
+          } finally {
+            // Quitar estado de carga
+            submitBtn?.classList.remove('is-loading');
+            submitBtn?.removeAttribute('disabled');
+          }
+        });
+
+        // =====================================
+        // 11. TIMELINE FILTERS
+        // =====================================
+        const timelineFilters = document.querySelectorAll('[data-timeline-filter]');
+        const timelineItems = document.querySelectorAll('[data-timeline-type]');
+
+        timelineFilters.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            timelineFilters.forEach((b) => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+
+            const filter = btn.dataset.timelineFilter;
+            timelineItems.forEach((item) => {
+              const type = item.dataset.timelineType;
+              const show = filter === 'all' || type === filter;
+              item.hidden = !show;
+              item.style.opacity = show ? '' : '0';
+            });
+          });
+        });
+
+        // =====================================
+        // 12. CAROUSELS
+        // =====================================
+        document.querySelectorAll('.project-card__media--carousel').forEach((mediaEl) => {
+          const slides = mediaEl.querySelectorAll('.carousel__slide');
+          const dots   = mediaEl.querySelectorAll('.carousel__dot');
+          const prev   = mediaEl.querySelector('.carousel__btn--prev');
+          const next   = mediaEl.querySelector('.carousel__btn--next');
+
+          if (slides.length <= 1) return;
+
+          let current = 0;
+
+          const goTo = (idx) => {
+            slides[current].classList.remove('is-active');
+            slides[current].setAttribute('aria-hidden', 'true');
+            dots[current].classList.remove('is-active');
+            current = (idx + slides.length) % slides.length;
+            slides[current].classList.add('is-active');
+            slides[current].removeAttribute('aria-hidden');
+            dots[current].classList.add('is-active');
+          };
+
+          prev?.addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });
+          next?.addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
+          dots.forEach((dot, i) => dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(i); }));
+
+          // Swipe support
+          let touchX = 0;
+          mediaEl.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+          mediaEl.addEventListener('touchend', (e) => {
+            const diff = touchX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 30) goTo(diff > 0 ? current + 1 : current - 1);
+          });
+        });
+
+        // =====================================
+        // 13. PARTICLES BACKGROUND (Canvas ligero)
+        // =====================================
+        const canvas = document.getElementById('particles-bg');
+        if (!canvas) return;
+
+        // No ejecutar en móviles o si prefers-reduced-motion
+        const isMobile = window.innerWidth <= 768;
+        const prefersReducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)',
+        ).matches;
+
+        if (isMobile || prefersReducedMotion) {
+          canvas.style.display = 'none';
+          return;
+        }
+
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+        let animationFrameId;
+        let isPaused = false;
+        let mouse = {
+          x: null,
+          y: null,
+          radius: 120, // Radio de influencia del mouse
+        };
+
+        // Configuración
+        const CONFIG = {
+          particleCount: 50,
+          particleSpeed: 1.0, // ⚡ Más rápido (era 0.3)
+          connectionDistance: 120,
+          particleSize: 2,
+          particleColor: 'rgba(255, 255, 255, 0.8)',
+          lineColor: 'rgba(94, 21, 122, 0.3)', // Violet theme
+          lineWidth: 2.5, // 📏 Líneas más gruesas (era 1)
+        };
+
+        // Ajustar canvas al tamaño de ventana
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+
+        // Clase Particle
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * CONFIG.particleSpeed;
+            this.vy = (Math.random() - 0.5) * CONFIG.particleSpeed;
+            this.size = CONFIG.particleSize;
+          }
+
+          update() {
+            // Efecto repulse del mouse 🖱️
+            if (mouse.x !== null && mouse.y !== null) {
+              const dx = this.x - mouse.x;
+              const dy = this.y - mouse.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < mouse.radius) {
+                const force = (mouse.radius - distance) / mouse.radius;
+                const angle = Math.atan2(dy, dx);
+                this.x += Math.cos(angle) * force * 8; // Fuerza aumentada para efecto más visible
+                this.y += Math.sin(angle) * force * 8;
+              }
+            }
+
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Rebotar en bordes
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+          }
+
+          draw() {
+            ctx.fillStyle = CONFIG.particleColor;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        // Inicializar partículas
+        function init() {
+          particlesArray = [];
+          for (let i = 0; i < CONFIG.particleCount; i++) {
+            particlesArray.push(new Particle());
+          }
+        }
+
+        // Conectar partículas cercanas
+        function connectParticles() {
+          for (let i = 0; i < particlesArray.length; i++) {
+            for (let j = i + 1; j < particlesArray.length; j++) {
+              const dx = particlesArray[i].x - particlesArray[j].x;
+              const dy = particlesArray[i].y - particlesArray[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < CONFIG.connectionDistance) {
+                const opacity = 1 - distance / CONFIG.connectionDistance;
+                ctx.strokeStyle = CONFIG.lineColor.replace(
+                  '0.3',
+                  opacity * 0.3,
+                );
+                ctx.lineWidth = CONFIG.lineWidth; // 📏 Líneas más gruesas
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+
+        // Loop de animación
+        function animate() {
+          if (isPaused) return;
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          particlesArray.forEach((particle) => {
+            particle.update();
+            particle.draw();
+          });
+
+          connectParticles();
+
+          animationFrameId = requestAnimationFrame(animate);
+        }
+
+        // Pausar cuando la pestaña no está activa (ahorro de batería)
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            isPaused = true;
+            cancelAnimationFrame(animationFrameId);
+          } else {
+            isPaused = false;
+            animate();
+          }
+        });
+
+        // Tracking del mouse para efecto interactivo 🖱️
+        // Usar window en lugar de canvas porque el canvas está detrás (z-index: -1)
+        window.addEventListener('mousemove', (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseout', () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+
+        // Redimensionar canvas al cambiar tamaño de ventana
+        window.addEventListener('resize', () => {
+          resizeCanvas();
+          init();
+        });
+
+        // Iniciar
+        resizeCanvas();
+        init();
+        animate();
+      });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scroll-to-top"
+      class="scroll-to-top"
+      aria-label="Volver al inicio"
+      hidden
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
+
+    <!-- Modal de Proyecto -->
+    <div
+      class="project-modal"
+      id="project-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      hidden
+    >
+      <div class="project-modal__overlay"></div>
+      <div class="project-modal__container">
+        <button
+          class="project-modal__close"
+          aria-label="Cerrar modal"
+          id="close-modal"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="project-modal__content">
+          <div class="project-modal__media">
+            <div class="modal-carousel" id="modal-carousel">
+              <!-- Slides inyectadas por openModal() -->
+              <button class="modal-carousel__btn modal-carousel__btn--prev" type="button" aria-label="Imagen anterior" hidden>&#8249;</button>
+              <button class="modal-carousel__btn modal-carousel__btn--next" type="button" aria-label="Imagen siguiente" hidden>&#8250;</button>
+              <div class="modal-carousel__dots" id="modal-carousel-dots" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="project-modal__body">
+            <h2 id="modal-title" class="project-modal__title"></h2>
+
+            <div class="project-modal__description">
+              <p id="modal-description"></p>
+            </div>
+
+            <div class="project-modal__tech">
+              <h3 class="project-modal__tech-title">
+                <span data-lang="es">Tecnologías</span>
+                <span data-lang="en">Technologies</span>
+              </h3>
+              <ul id="modal-tags" class="project-modal__tags"></ul>
+            </div>
+
+            <div class="project-modal__actions">
+              <a
+                id="modal-demo-link"
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn--primary"
+              >
+                <span data-lang="es">Ver Proyecto</span>
+                <span data-lang="en">View Project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

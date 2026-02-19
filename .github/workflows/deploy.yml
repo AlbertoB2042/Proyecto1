@@ -1,0 +1,44 @@
+name: Deploy a producción
+
+on:
+  push:
+    branches:
+      - main   # Se ejecuta solo cuando haces push a main
+
+jobs:
+  deploy:
+    name: Sync S3 + Invalidar CloudFront
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descarga el código del repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Configura credenciales AWS desde los Secrets del repo
+      - name: Configurar credenciales AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:            ${{ secrets.AWS_REGION }}
+
+      # 3. Sube los archivos a S3 (excluye archivos de desarrollo)
+      - name: Sync a S3
+        run: |
+          aws s3 sync . s3://baezjimenez.com \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "*.md" \
+            --exclude ".gitignore" \
+            --exclude ".prettierrc" \
+            --exclude "deploy.sh" \
+            --exclude "cloudfront-security-headers.js" \
+            --delete
+
+      # 4. Invalida la caché de CloudFront para que los cambios sean inmediatos
+      - name: Invalidar caché CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E1I687WSVV0R18 \
+            --paths "/*"

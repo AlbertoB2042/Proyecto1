@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es" data-lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Página no encontrada | Alberto Báez Jiménez</title>
+    <meta name="description" content="La página que buscas no existe o ha sido movida." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logoabj.svg" />
+
+    <!-- Lottie animations -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .error-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-xl);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .error-page__content {
+        max-width: 600px;
+        text-align: center;
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-2xl);
+        box-shadow: var(--shadow-card);
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+      }
+
+      .error-page__animation {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto var(--spacing-lg);
+      }
+
+      .error-page__code {
+        font-size: 6rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--violet), var(--violet-hover));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .error-page__title {
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+        color: var(--text-light);
+        margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+      }
+
+      .error-page__description {
+        font-size: var(--font-size-base);
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .error-page__actions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+      }
+
+      @media (min-width: 768px) {
+        .error-page__actions {
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Toggle buttons en esquina superior derecha */
+      .page-controls {
+        position: fixed;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        display: flex;
+        gap: var(--spacing-sm);
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Particles background -->
+    <canvas id="particles-bg" aria-hidden="true"></canvas>
+
+    <!-- Controles de página -->
+    <div class="page-controls">
+      <button
+        class="lang-toggle"
+        type="button"
+        id="lang-toggle"
+        aria-pressed="false"
+        aria-label="Cambiar idioma"
+      >
+        <span class="lang-toggle__text">ES</span>
+      </button>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        id="theme-toggle"
+        aria-pressed="false"
+        aria-label="Cambiar tema de color"
+      >
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="error-page">
+      <div class="error-page__content">
+        <!-- Animación Lottie -->
+        <dotlottie-wc
+          src="https://lottie.host/0a4e21d8-49fe-454c-9d33-9b9a5fb2b968/HawYrvKD9I.lottie"
+          class="error-page__animation"
+          autoplay
+          loop>
+        </dotlottie-wc>
+
+        <!-- Código de error -->
+        <h1 class="error-page__code">404</h1>
+
+        <!-- Título -->
+        <h2 class="error-page__title">
+          <span data-lang="es">Página no encontrada</span>
+          <span data-lang="en">Page not found</span>
+        </h2>
+
+        <!-- Descripción -->
+        <p class="error-page__description">
+          <span data-lang="es">
+            Lo sentimos, la página que buscas no existe o ha sido movida.
+            Verifica la URL o regresa al inicio.
+          </span>
+          <span data-lang="en">
+            Sorry, the page you are looking for does not exist or has been moved.
+            Check the URL or return to home.
+          </span>
+        </p>
+
+        <!-- Acciones -->
+        <div class="error-page__actions">
+          <a href="/" class="btn btn--primary">
+            <span data-lang="es">Ir al Inicio</span>
+            <span data-lang="en">Go Home</span>
+          </a>
+          <a href="/#contacto" class="btn btn--ghost">
+            <span data-lang="es">Contacto</span>
+            <span data-lang="en">Contact</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // =====================================
+      // THEME & LANGUAGE TOGGLES
+      // =====================================
+      const root = document.documentElement;
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const langToggleBtn = document.getElementById('lang-toggle');
+      const langToggleText = langToggleBtn?.querySelector('.lang-toggle__text');
+
+      // Theme toggle
+      const STORAGE_KEY = 'theme';
+      const getPreferredTheme = () => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'light' || stored === 'dark') return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        themeToggleBtn?.setAttribute('aria-pressed', theme === 'dark' ? 'false' : 'true');
+      };
+
+      applyTheme(getPreferredTheme());
+
+      themeToggleBtn?.addEventListener('click', () => {
+        const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(STORAGE_KEY, nextTheme);
+        applyTheme(nextTheme);
+      });
+
+      // Language toggle
+      const LANG_STORAGE_KEY = 'lang';
+      const getPreferredLang = () => {
+        const stored = localStorage.getItem(LANG_STORAGE_KEY);
+        if (stored === 'es' || stored === 'en') return stored;
+        const browserLang = navigator.language.toLowerCase();
+        return browserLang.startsWith('es') ? 'es' : 'en';
+      };
+
+      const applyLang = (lang) => {
+        root.dataset.lang = lang;
+        if (langToggleText) {
+          langToggleText.textContent = lang === 'es' ? 'ES' : 'EN';
+        }
+        langToggleBtn?.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+        document.documentElement.lang = lang;
+      };
+
+      applyLang(getPreferredLang());
+
+      langToggleBtn?.addEventListener('click', () => {
+        const nextLang = root.dataset.lang === 'es' ? 'en' : 'es';
+        localStorage.setItem(LANG_STORAGE_KEY, nextLang);
+        applyLang(nextLang);
+      });
+
+      // =====================================
+      // PARTICLES BACKGROUND (simplificado)
+      // =====================================
+      const canvas = document.getElementById('particles-bg');
+      if (canvas) {
+        const isMobile = window.innerWidth <= 768;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (isMobile || prefersReducedMotion) {
+          canvas.style.display = 'none';
+        } else {
+          const ctx = canvas.getContext('2d');
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+
+          const CONFIG = {
+            particleCount: 30,
+            particleSpeed: 0.5,
+            connectionDistance: 120,
+            lineWidth: 2,
+            particleColor: 'rgba(255, 255, 255, 0.8)',
+            lineColor: 'rgba(94, 21, 122, 0.3)',
+          };
+
+          class Particle {
+            constructor() {
+              this.x = Math.random() * canvas.width;
+              this.y = Math.random() * canvas.height;
+              this.vx = (Math.random() - 0.5) * CONFIG.particleSpeed;
+              this.vy = (Math.random() - 0.5) * CONFIG.particleSpeed;
+              this.radius = 1.5;
+            }
+
+            update() {
+              this.x += this.vx;
+              this.y += this.vy;
+              if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+              if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+              ctx.beginPath();
+              ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+              ctx.fillStyle = CONFIG.particleColor;
+              ctx.fill();
+            }
+          }
+
+          const particles = Array.from({ length: CONFIG.particleCount }, () => new Particle());
+
+          function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+              particle.update();
+              particle.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+              for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < CONFIG.connectionDistance) {
+                  const opacity = (1 - distance / CONFIG.connectionDistance) * 0.3;
+                  ctx.beginPath();
+                  ctx.strokeStyle = `rgba(94, 21, 122, ${opacity})`;
+                  ctx.lineWidth = CONFIG.lineWidth;
+                  ctx.moveTo(particles[i].x, particles[i].y);
+                  ctx.lineTo(particles[j].x, particles[j].y);
+                  ctx.stroke();
+                }
+              }
+            }
+
+            requestAnimationFrame(animate);
+          }
+
+          animate();
+
+          window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
