@@ -55,7 +55,9 @@
   background-clip: text;
 }
 
-:root[data-theme="light"] .projects__title {
+:root[data-theme="light"] .projects__title,
+:root[data-theme="light"] .cases__title,
+:root[data-theme="light"] .contact__title {
   background: linear-gradient(135deg, var(--violet), var(--violet-hover));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
