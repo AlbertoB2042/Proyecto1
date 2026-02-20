@@ -2234,6 +2234,216 @@ strong[data-lang],
 }
 
 /* ==========================================
+   CASE STUDIES SECTION
+   ========================================== */
+.cases {
+  padding: var(--spacing-2xl) 0;
+}
+
+.cases__header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.cases__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  background: linear-gradient(135deg, var(--text-light), var(--soft-lavender));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cases__lead {
+  font-size: var(--font-size-lg);
+  color: var(--text-muted);
+}
+
+.cases__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.case-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  transition: all var(--transition-slow);
+}
+
+.case-card:hover {
+  box-shadow: var(--shadow-hover);
+  background: var(--card-bg-hover);
+}
+
+.case-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.case-card__badge {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--violet);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.case-card__year {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.case-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-light);
+  line-height: 1.3;
+}
+
+.case-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.case-card__label {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--violet);
+  margin-bottom: var(--spacing-xs);
+}
+
+.case-card__text {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.case-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.case-card__metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.case-card__metric-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--violet), var(--soft-lavender));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.case-card__metric-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.case-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.case-card__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.case-card--pending {
+  border: 2px dashed var(--border-glass);
+  background: transparent;
+  box-shadow: none;
+  min-height: 200px;
+  justify-content: center;
+}
+
+.case-card--pending:hover {
+  border-color: var(--violet);
+  background: rgba(139, 92, 246, 0.04);
+  box-shadow: none;
+}
+
+.case-card__pending-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.case-card__pending-inner svg {
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.case-card__pending-text {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.case-card__pending-hint {
+  font-size: var(--font-size-xs);
+  color: var(--violet);
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .cases__grid {
+    grid-template-columns: 1fr;
+  }
+  .case-card--pending {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-card__metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================
    INTERESTS SECTION
    ========================================== */
 .interests {
