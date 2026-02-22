@@ -10,6 +10,7 @@
   --soft-lavender: #f3ecf7;
   --text-light: #ffffff;
   --text-muted: #cfc6d6;
+  --accent-text: #c084fc;
   --border-glass: rgba(255, 255, 255, 0.1);
 
   /* Variables temáticas adaptables */
@@ -27,6 +28,7 @@
   --deep-violet-black: #f8f5fa;
   --text-light: #1e293b;
   --text-muted: #64748b;
+  --accent-text: var(--violet);
   --border-glass: rgba(94, 21, 122, 0.15);
 
   --bg-gradient-start: #ffffff;
@@ -514,7 +516,7 @@ h6 {
 .profile-card__title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: var(--violet);
+  color: var(--accent-text);
   margin: var(--spacing-sm) 0 var(--spacing-md) 0;
   min-height: 1.5em;
   display: flex;
@@ -530,7 +532,7 @@ h6 {
   display: inline-block;
   width: 2px;
   height: 1.2em;
-  background-color: var(--violet);
+  background-color: var(--accent-text);
   margin-left: 2px;
   animation: blink 1s infinite;
 }
@@ -569,7 +571,7 @@ h6 {
 }
 
 .profile-card__linkedin a {
-  color: var(--violet);
+  color: var(--accent-text);
   text-decoration: none;
   transition: all var(--transition-base);
   padding: 2px 6px;
@@ -2300,9 +2302,9 @@ strong[data-lang],
 .case-card__badge {
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--violet);
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: var(--accent-text);
+  background: rgba(192, 132, 252, 0.12);
+  border: 1px solid rgba(192, 132, 252, 0.25);
   padding: 4px 10px;
   border-radius: 20px;
   letter-spacing: 0.02em;
@@ -2331,7 +2333,7 @@ strong[data-lang],
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--violet);
+  color: var(--accent-text);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -3048,7 +3050,7 @@ strong[data-lang],
 .timeline__icon--academic { color: #22c55e; }
 .timeline__icon--cert { color: #f59e0b; }
 .timeline__icon--pub { color: #06b6d4; }
-.timeline__icon--work { color: var(--violet); }
+.timeline__icon--work { color: var(--accent-text); }
 
 .timeline__content {
   padding: var(--spacing-lg);
@@ -3099,7 +3101,7 @@ strong[data-lang],
   margin-bottom: var(--spacing-sm);
 }
 
-.timeline__badge--work { background: rgba(139, 92, 246, 0.15); color: var(--violet); }
+.timeline__badge--work { background: rgba(192, 132, 252, 0.15); color: var(--accent-text); }
 .timeline__badge--academic { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
 .timeline__badge--cert { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
 .timeline__badge--pub { background: rgba(6, 182, 212, 0.15); color: #06b6d4; }
@@ -3128,7 +3130,7 @@ strong[data-lang],
 
 .timeline__link {
   font-size: var(--font-size-sm);
-  color: var(--violet);
+  color: var(--accent-text);
   text-decoration: none;
   display: inline-block;
   transition: color var(--transition-base);
@@ -3137,7 +3139,7 @@ strong[data-lang],
 }
 
 .timeline__link:hover {
-  color: var(--violet-hover);
+  color: var(--text-light);
   text-decoration: underline;
 }
 
