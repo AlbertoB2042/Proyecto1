@@ -2595,7 +2595,7 @@
           buildModalCarousel(images);
           modalDescription.textContent = project.description[currentLang];
           modalProjectLink.href = project.projectUrl;
-          modalProjectLink.hidden = project.projectUrl === '#';
+          modalProjectLink.style.display = project.projectUrl === '#' ? 'none' : '';
 
           // Label del botón
           if (project.linkLabel) {
